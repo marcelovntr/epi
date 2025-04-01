@@ -1,0 +1,56 @@
+# Pastas de ambiente virtual
+.venv/
+venv/
+env/
+
+# Arquivos de cache e compilação do Python
+__pycache__/
+*.py[cod]
+*.so
+*.pyo
+
+# Configurações de IDEs e editores de código
+.vscode/
+.idea/
+*.swp
+
+# Arquivos de banco de dados SQLite
+*.sqlite3
+
+# Arquivos de log e dumps
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Migrations compiladas
+*/migrations/*.pyc
+
+# Arquivos do Django
+*.pyc
+*.pyo
+*.pyd
+db.sqlite3
+media/
+#static/
+
+# Arquivos de dependências
+Pipfile
+Pipfile.lock
+poetry.lock
+
+# Arquivos sensíveis
+.env
+.envrc
+*.pem
+*.key
+config/settings/local.py
+config/settings/dev.py
+
+# Docker e caches do sistema
+.dockerignore
+docker-compose.override.yml
+*.bak
