@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'epi_app/css/header.css' %}">
+    {% comment %} demais css{% endcomment %}
+    {% block css %}{% endblock css %}
+
+</head>
+<body>
+    {% include "epi_app/partials/header.html" %}
+    {% block content %}{% endblock content %}
+    {% include "epi_app/partials/footer.html" %}
+</body>
+</html>
