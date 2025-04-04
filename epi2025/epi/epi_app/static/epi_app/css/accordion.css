@@ -1,0 +1,23 @@
+.accordion {
+    max-width: 300px;
+    margin: 0;
+    border-radius: 0;
+}
+
+.accordion-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion-body a{
+    text-decoration: none;
+    color: rgba(19, 18, 18, 0.87);
+    margin: 8px;
+    padding-bottom: 4px; /* texto não salta qdo a borda aparece */
+    transition: all 0.1s ease-in-out;
+}
+.accordion-body a:hover{
+    border-bottom: 2px solid rgb(27, 26, 26);
+    font-weight: bold; 
+   
+}
