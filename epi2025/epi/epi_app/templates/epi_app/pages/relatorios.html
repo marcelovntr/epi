@@ -1,12 +1,29 @@
 {% extends "epi_app/global/index.html" %}
 {% load static %}
 {% block title %}Relatórios{% endblock title %}
-{% comment %} {% block css %}
-    <link rel="stylesheet" href="{% static 'epi_app/css/home.css' %}" />
-{% endblock css %} {% endcomment %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'epi_app/css/relatorios.css' %}" />
+{% endblock css %} 
 
 {% block content %}
 
-<h1>relatórios</h1>
+
+<main class='container-home'>
+    <h1>relatórios</h1>
+
+        <input type="text" placeholder="Buscar por nome">
+        <ul class="lista-colaborador">
+            {% for worker in colaboradores %}
+                <li>
+                    <p>{{worker.nome}} - {{worker.setor}} - {{worker.cargo}} - <a href="">editar</a> - <a href="">atualizar</a></p>
+                    
+                    
+                </li>
+    
+            {% endfor %}
+        </ul>  
+</main>
+
+
 
 {% endblock content %}

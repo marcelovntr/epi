@@ -1,0 +1,12 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f3ecec;
+}
+.container-home {
+    background-color: rgb(106, 199, 152)
+}

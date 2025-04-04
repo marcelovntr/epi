@@ -1,12 +1,33 @@
 {% extends "epi_app/global/index.html" %}
 {% load static %}
 {% block title %}Editar Colaboradores{% endblock title %}
-{% comment %} {% block css %}
-    <link rel="stylesheet" href="{% static 'epi_app/css/home.css' %}" />
-{% endblock css %} {% endcomment %}
+ {% block css %}
+    <link rel="stylesheet" href="{% static 'epi_app/css/editar_colaborador.css' %}" />
+{% endblock css %}
 
 {% block content %}
 
-<h1>editar colaboradores</h1>
+<main class="container-edicao">
+    <h1>editar colaborador</h1>
+
+    <form action="{% url 'cadastro_colaborador' %}" method="post">
+        {% csrf_token %}
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" >
+        <label for="cargo">Cargo</label>
+        <input type="text" name="cargo" >
+        <label for="setor">Setor</label>
+        <input type="text" name="setor" >
+        <button type="submit">Atualizar</button>
+    </form>
+
+    {% comment %} {% if  colaborador in colaboradores%}
+        <ul>
+            <li></li>
+        </ul>
+
+    {% endif %} {% endcomment %}
+</main>
+
 
 {% endblock content %}

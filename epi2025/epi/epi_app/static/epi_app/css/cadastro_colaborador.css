@@ -1,0 +1,76 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container-cadastro {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #8eb9e4;
+    border-radius: 16px;
+    box-shadow: 0 0 10px rgba(77, 3, 83, 0.1);
+    font-family: monospace;
+}
+
+.container-cadastro h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(229, 241, 237);
+}
+
+.container-cadastro form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+}
+
+.container-cadastro label {
+    font-size: 0.8em;
+    color: rgb(240, 245, 243);
+    padding: 0px 64px;
+    align-self: flex-start;
+}
+
+.container-cadastro input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 12px;
+    background-color: rgb(240, 244, 242);
+    margin-bottom: 8px;
+}
+
+.container-cadastro button {
+    background-color: rgb(240, 244, 242);
+    color: rgb(24, 26, 25);
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+    width: 50%;
+    align-self: center;
+    margin-top: 8px;
+}
+
+.container-cadastro button:hover {
+    background-color: rgb(92, 150, 197);
+    color: rgb(236, 243, 240);
+}
+
+.container-cadastro ul {
+    margin: 20px auto;
+    padding: 10px;
+    background: rgb(240, 244, 242);
+    border-radius: 8px;
+    color: #4f1252;
+    font-weight: bold;
+    width: 60%;
+    display: block;
+    text-align: center;
+}
