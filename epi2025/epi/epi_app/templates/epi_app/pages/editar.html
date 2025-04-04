@@ -10,14 +10,14 @@
 <main class="container-edicao">
     <h1>editar colaborador</h1>
 
-    <form action="{% url 'cadastro_colaborador' %}" method="post">
+    <form action="{% url 'editar_colaborador' colaborador.id %}" method="post">
         {% csrf_token %}
         <label for="nome">Nome</label>
-        <input type="text" name="nome" >
+        <input type="text" name="nome" value="{{ colaborador.nome }}">
         <label for="cargo">Cargo</label>
-        <input type="text" name="cargo" >
+        <input type="text" name="cargo" value="{{ colaborador.cargo }}">
         <label for="setor">Setor</label>
-        <input type="text" name="setor" >
+        <input type="text" name="setor" value="{{ colaborador.setor }}">
         <button type="submit">Atualizar</button>
     </form>
 

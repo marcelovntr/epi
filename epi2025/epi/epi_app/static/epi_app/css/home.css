@@ -6,6 +6,7 @@
 
 body {
     background-color: #f3ecec;
+    min-height: 100vh;
 }
 .container-home {
     background-color: rgb(106, 199, 152)

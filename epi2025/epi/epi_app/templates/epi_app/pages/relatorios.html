@@ -8,20 +8,32 @@
 {% block content %}
 
 
-<main class='container-home'>
-    <h1>relatórios</h1>
+<main class='container-relatorio'>
+    <h1>relatórios COLABORADOR + EPI + DATA</h1>
 
-        <input type="text" placeholder="Buscar por nome">
-        <ul class="lista-colaborador">
-            {% for worker in colaboradores %}
-                <li>
-                    <p>{{worker.nome}} - {{worker.setor}} - {{worker.cargo}} - <a href="">editar</a> - <a href="">atualizar</a></p>
-                    
-                    
-                </li>
-    
+    <input type="text" placeholder="Buscar por nome">
+
+    <table class="tabela-relatorio">
+        <thead class="relatorio-cabecalho">
+            <tr>
+                <th>colaborador</th>
+                <th>epi</th>
+                <th>data</th>
+            </tr>
+        </thead>
+        <tbody class="relatorio-corpo">
+            
+            {% for itens in relatorio %}
+                <tr>
+                    <td>{{ relatorio.colaborador }}</td>
+                    <td>{{ relatorio.epi }}</td>
+                    <td>{{ relatorio.data }}</td>
+                </tr>
             {% endfor %}
-        </ul>  
+        </tbody>
+        
+    </table>
+  
 </main>
 
 

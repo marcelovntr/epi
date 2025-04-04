@@ -1,0 +1,41 @@
+{% extends "epi_app/global/index.html" %}
+{% load static %}
+{% block title %}Lista Edição{% endblock title %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'epi_app/css/listagem_editar.css' %}" />
+{% endblock css %}
+
+{% block content %}
+
+<main class='container-home'>
+    <h1>relatórios</h1>
+        <p>pesquisar por usuário</p>
+        <input type="text" placeholder="Buscar por nome">
+        
+        
+        <table class="tabela-colaboradores">
+            <thead class="tabela-cabecalho">
+                <tr>
+                    <th>Nome</th>
+                    <th>Setor</th>
+                    <th>Cargo</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody class="tabela-corpo">
+                {% for worker in colaboradores %}
+                    <tr>
+                        <td>{{ worker.nome }}</td>
+                        <td>{{ worker.setor }}</td>
+                        <td>{{ worker.cargo }}</td>
+                        <td><a href="{% url 'deletar_colaborador' worker.id %}">Excluir</a>
+                        <a href="{% url 'editar_colaborador' worker.id %}">Atualizar</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+</main>
+  
+
+{% endblock content %}
