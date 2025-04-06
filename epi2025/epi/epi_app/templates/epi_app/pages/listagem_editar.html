@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<main class='container-home'>
+<main class='container-editar'>
     <h1>relatórios</h1>
         <p>pesquisar por usuário</p>
         <input type="text" placeholder="Buscar por nome">
@@ -29,7 +29,7 @@
                         <td>{{ worker.setor }}</td>
                         <td>{{ worker.cargo }}</td>
                         <td><a href="{% url 'deletar_colaborador' worker.id %}">Excluir</a>
-                        <a href="{% url 'editar_colaborador' worker.id %}">Atualizar</a></td>
+                        <a href="{% url 'editar_colaborador' worker.id %}">Editar</a></td>
                     </tr>
                 {% endfor %}
             </tbody>

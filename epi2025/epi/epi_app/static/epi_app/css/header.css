@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 .header-index {
+    position: relative; /*última alteração*/
     width: 100%;
     min-height: 80px;
     background-color: #8eb9e4;

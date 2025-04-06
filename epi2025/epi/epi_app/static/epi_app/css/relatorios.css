@@ -3,3 +3,12 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+.container-relatorio{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-width: 60%;
+    align-items: center;
+    margin: auto;
+}

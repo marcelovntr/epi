@@ -7,9 +7,22 @@
 
 {% block content %}
 
-<body>
-   
-</body>
-  
+
+<main class="container-home">
+ <h1>HOME!</h1>
+
+ <div class="container-login">
+    <span>Login</span>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="nome">Usuário</label>
+        <input type="text" name="nome" placeholder="usuario@email.com">
+        <label for="cargo">Senha</label>
+        <input type="text" name="cargo">
+        <button type="submit">Acessar</button>
+    </form>
+ </div>
+
+</main>
 
 {% endblock content %}

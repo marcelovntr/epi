@@ -5,6 +5,7 @@
 }
 .container-cadastro {
     max-width: 600px;
+    max-height: 400px;
     margin: 40px auto;
     padding: 20px;
     background-color: #8eb9e4;

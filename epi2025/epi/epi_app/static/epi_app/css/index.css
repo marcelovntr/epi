@@ -8,7 +8,10 @@ html, body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #f3ecec;
 }
-body > *:not(.footer-container) {
-    flex: 1; /* Faz o conteúdo crescer e empurrar o footer para baixo */
+.main-content {
+    flex: 1; /* Só o conteúdo ocupa o espaço restante */
+   margin-top: 60px;
+
 }

@@ -4,10 +4,57 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: #f3ecec;
-    min-height: 100vh;
+.container-home{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    background-color: rgb(215, 236, 183);
 }
-.container-home {
-    background-color: rgb(106, 199, 152)
+.container-home h1{
+    color: rgb(55, 221, 138);
+    margin: auto;
+}
+
+.container-login{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 400px;
+    height: 250px;
+    border-radius: 8px;
+    background-color: royalblue;
+}
+.container-login form{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.container-login label{
+    font-size: 0.8em;
+    color: rgb(240, 245, 243);
+    padding: 0px 48px;
+    align-self: flex-start;
+}
+
+.container-login input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 12px;
+    background-color: rgb(240, 244, 242);
+    margin-bottom: 8px;
+}
+span {
+    color: aquamarine;
+    margin-top: 8px;
 }

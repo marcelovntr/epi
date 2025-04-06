@@ -1,56 +1,62 @@
-    *{
+*{
         padding: 0;
         margin: 0;
         box-sizing: border-box;
     }
-    .container-home{
+.container-editar{
         display: flex;
         justify-content: center;
         flex-direction: column;
-        min-width: 60%;
+        max-width: 60%;
         align-items: center;
         margin: auto;
         }
 
-    .tabela-colaboradores {
-    min-width: 80%;
-    background-color: rosybrown;
-    border: #f33b9a solid 1px;
-    border-collapse: collapse;
-    border: 4px solid #f33b9a;
-    border-style:solid;
+.tabela-colaboradores {
+    background-color: rgb(248, 247, 247);
+    border-radius: 4px;   
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
     }  
 
-    .tabela-cabecalho{
+.tabela-cabecalho{
         text-align: center;
-        padding: 8px;
-        background-color: aqua;
+        background-color: rgb(93, 176, 245);
+        
     }
 
-    .tabela-corpo{
+.tabela-corpo{
         text-align: center;
         padding: 8px;
     }
 
 .tabela-colaboradores th, .tabela-colaboradores td {
-    border: 1px solid black; /* Adiciona bordas visíveis nas células */
-    padding: 4px; /* Aumenta o espaçamento interno */
     text-align: center;
+    padding: 10px;
 }
 
 .tabela-colaboradores tr:nth-child(even) {
-    background-color: #ffd4dc; /* Alternância de cores nas linhas */
+    background-color: #bedff1; /* Alternância de cores nas linhas */
 }
 
 .tabela-corpo a{
-background-color: brown;
 text-decoration: none;
-color: #f33b9a;
 padding: 4px 8px;
 border-radius: 4px;
 font-size: 0.8em;
 }
-    .lista-colaborador {
+.tabela-corpo a:first-child{
+    color:#f33b54;
+    font-weight: bold;
+    border : 1px solid #f33b54;
+}
+.tabela-corpo a:last-child{
+    color:#1da746;
+    font-weight: bold;
+    border : 1px solid #1da746;
+}
+.lista-colaborador {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -58,7 +64,7 @@ font-size: 0.8em;
         list-style: none;
         
     }
-    .lista-colaborador li{
+.lista-colaborador li{
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -70,15 +76,6 @@ font-size: 0.8em;
         border-radius: 8px;
     }
     
-    .lista-colaborador a {
+.lista-colaborador a {
         text-decoration: none;
-    }
-    
-    .lista-colaborador a:first-child{
-        color:#f33b9a;
-        font-weight: bold;
-    }
-    .lista-colaborador a:last-child{
-        color: aquamarine;
-        font-weight: bold;
     }
