@@ -1,0 +1,31 @@
+{% extends "epi_app/global/index.html" %}
+{% load static %}
+{% block title %}Cadastro Colaboradores{% endblock title %}
+{% comment %} {% block css %}
+    <link rel="stylesheet" href="{% static 'epi_app/css/cadastro_colaborador.css' %}" />
+{% endblock css %} {% endcomment %}
+
+{% block content %}
+
+    <main class="container-cadastro">
+        <h1>cadastrar colaborador</h1>
+
+        <form action="{% url 'cadastro_colaborador' %}" method="post">
+            {% csrf_token %}
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" placeholder="Nome do colaborador">
+            <label for="cargo">Cargo</label>
+            <input type="text" name="cargo" placeholder="Função/profissão">
+            <label for="setor">Setor</label>
+            <input type="text" name="setor" placeholder="Setor da empresa">
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        {% comment %} {% if  colaborador in colaboradores%}
+            <ul>
+                <li></li>
+            </ul>
+
+        {% endif %} {% endcomment %}
+    </main>
+{% endblock content %}

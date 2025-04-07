@@ -1,7 +1,20 @@
 .accordion {
-    max-width: 300px;
+    /* max-width: 300px;
     margin: 0;
-    border-radius: 0;
+    border-radius: 0; */
+
+
+    position: fixed;  /* posiciona em relação ao header */
+    top: 80px;           /* exibe logo abaixo do header */
+    left: 0;
+
+    width: 100%;         /* ocupa a largura total abaixo do header */
+    max-width: 250px;    /* opcional: se quiser limitar */
+    z-index: 1050;
+
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
 }
 
 .accordion-body {
