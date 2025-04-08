@@ -75,3 +75,16 @@
     display: block;
     text-align: center;
 }
+.lista-sucesso-erro{
+    list-style: none;
+}
+.lista-sucesso-erro li{
+    margin: 10px auto;
+    padding: 10px;
+    background: rgb(240, 244, 242);
+    border-radius: 8px;
+    font-weight: bold;
+    width: 30%;
+    display: block;
+    text-align: center;
+}

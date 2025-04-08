@@ -45,6 +45,7 @@ text-decoration: none;
 padding: 4px 8px;
 border-radius: 4px;
 font-size: 0.8em;
+background: transparent;
 }
 .tabela-corpo a:first-child{
     color:#f33b54;
@@ -55,6 +56,15 @@ font-size: 0.8em;
     color:#1da746;
     font-weight: bold;
     border : 1px solid #1da746;
+}
+.tabela-corpo button{
+    color:#f33b54;
+    font-weight: bold;
+    border : 1px solid #f33b54;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    background: transparent;
 }
 .lista-colaborador {
         display: flex;
@@ -79,3 +89,9 @@ font-size: 0.8em;
 .lista-colaborador a {
         text-decoration: none;
     }
+    
+.botoes{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
