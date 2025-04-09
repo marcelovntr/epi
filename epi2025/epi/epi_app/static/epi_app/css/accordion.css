@@ -4,12 +4,12 @@
     border-radius: 0; */
 
 
-    position: fixed;  /* posiciona em relação ao header */
-    top: 80px;           /* exibe logo abaixo do header */
+    position: fixed;  
+    top: 80px;           
     left: 0;
 
-    width: 100%;         /* ocupa a largura total abaixo do header */
-    max-width: 250px;    /* opcional: se quiser limitar */
+    width: 100%;         
+    max-width: 250px;   
     z-index: 1050;
 
     background-color: #fff;

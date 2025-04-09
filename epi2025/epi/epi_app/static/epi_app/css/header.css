@@ -4,7 +4,12 @@
     box-sizing: border-box;
 }
 .header-index {
-    position: relative; /*última alteração*/
+    
+    position: fixed;
+    /* top: 0;
+    left: 0; */
+    /* z-index: 1100; */
+    /* position: relative; última alteração */
     width: 100%;
     min-height: 80px;
     background-color: #8eb9e4;
@@ -20,6 +25,10 @@
 .header-texto {
     font-size: 18px;
     font-weight: bold;
+}
+.header-texto a {
+    text-decoration: none;
+    color: #2b2828;
 }
 
 .header-usuario {
