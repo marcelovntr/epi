@@ -1,0 +1,52 @@
+{% extends "epi_app/global/index.html" %}
+{% load static %}
+{% block title %}Lista Edição EPIs{% endblock title %}
+{% comment %} {% block css %}
+    <link rel="stylesheet" href="{% static 'epi_app/css/listagem_editar.css' %}" />
+{% endblock css %} {% endcomment %}
+
+{% block content %}
+
+<main class='container-editar-epi'>
+    <h1>EPIs Ativos</h1>
+        <p>pesquisar por usuário</p>
+        <input type="text" placeholder="Buscar por nome">
+        
+        
+        <table class="tabela-epi">
+            <thead class="tabela-cabecalho-epi">
+                <tr>
+                    <th>Nome</th>
+                    <th>Tipo</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody class="tabela-corpo-epi">
+                {% for epi in epis %}
+                    <tr>
+                        <td>{{ epi.nome }}</td>
+                        <td>{{ epi.tipo }}</td>
+                        <td>
+                            <div class="botoes-epi">
+                            {% comment %} <a href="{% url 'deletar_colaborador' epi.id %}">Excluir</a>  {% endcomment %}
+                            <form id="form-excluir-{{ epi.id }}" action="{% url 'deletar_equipamento' epi.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="button" onclick="confirmarExclusaoEpi('{{ epi.id }}')">Excluir</button>
+                            </form>
+                            
+                            <a href="{% url 'editar_equipamento' epi.id %}">Editar</a></td>
+                            </div>
+                        </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+</main>
+  
+
+{% endblock content %}
+
+{% block script %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{% static 'epi_app/js/exclusao.js' %}"></script>
+{% endblock script %}

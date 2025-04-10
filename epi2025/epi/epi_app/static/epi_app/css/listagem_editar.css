@@ -57,6 +57,11 @@ background: transparent;
     color:#1da746;
     font-weight: bold;
     border : 1px solid #1da746;
+    transition: all 0.2s;
+}
+.tabela-corpo a:hover{
+    background-color: #1da746;
+    color: azure;
 }
 .tabela-corpo button{
     color:#f33b54;
@@ -66,6 +71,11 @@ background: transparent;
     border-radius: 4px;
     font-size: 0.8em;
     background: transparent;
+    transition: all 0.2s;
+}
+.tabela-corpo button:hover{
+    background-color: #f33b54;
+    color: azure;
 }
 .lista-colaborador {
         display: flex;

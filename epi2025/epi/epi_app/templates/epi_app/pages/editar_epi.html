@@ -1,0 +1,36 @@
+{% extends "epi_app/global/index.html" %}
+{% load static %}
+{% block title %}Editar EPIs{% endblock title %}
+ {% comment %} {% block css %}
+    <link rel="stylesheet" href="{% static 'epi_app/css/editar_colaborador.css' %}" />
+{% endblock css %} {% endcomment %}
+
+{% block content %}
+
+<main class="container-edicao-epi">
+    <h1>Editar EPI</h1>
+
+    <form action="{% url 'editar_equipamento' epi.id %}" method="post">
+        {% csrf_token %}
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" value="{{ epi.nome }}">
+        <label for="tipo">Cargo</label>
+        <select name="tipo">
+            <option value="" disabled selected>Selecione o tipo de EPI</option>
+            <option value="cabeca" {% if epi.tipo == 'cabeca' %} selected {% endif %}>Proteção da cabeça</option>
+            <option value="auditiva" {% if epi.tipo == 'auditiva' %} selected {% endif %}>Proteção auditiva</option>
+            <option value="respiratoria" {% if epi.tipo == 'respiratoria' %} selected {% endif %}>Proteção respiratória</option>    
+            <option value="ocular_facial" {% if epi.tipo == 'ocular_facial' %} selected {% endif %}>Proteção ocular e facial</option>
+            <option value="superiores" {% if epi.tipo == 'superiores' %} selected {% endif %}>Proteção dos membros superiores</option>
+            <option value="inferiores" {% if epi.tipo == 'inferiores' %} selected {% endif %}>Proteção dos membros inferiores</option>
+            <option value="quedas" {% if epi.tipo == 'quedas' %} selected {% endif %}>Proteção contra quedas</option>
+        </select>
+    
+        <button type="submit">Atualizar</button>
+    </form>
+
+ 
+</main>
+
+
+{% endblock content %}

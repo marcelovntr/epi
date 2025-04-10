@@ -1,0 +1,44 @@
+{% extends "epi_app/global/index.html" %}
+{% load static %}
+{% block title %}Cadastro EPI{% endblock title %}
+
+{% comment %} {% block css %}
+    <link rel="stylesheet" href="{% static 'epi_app/css/cadastro_epi.css' %}" />
+{% endblock css %} {% endcomment %}
+
+{% block content %}
+
+<main class="container-cadastro-epi">
+    <h1>cadastro de EPI</h1>
+
+    <form action="{% url 'cadastro_equipamento' %}" method="post">
+        {% csrf_token %}
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" placeholder="Nome do EPI">
+        <label for="tipo">Descrição</label>
+        <select name="tipo">
+            <option value="" disabled selected>Selecione o tipo de EPI</option>
+            <option value="cabeca">Proteção da cabeça</option>
+            <option value="auditiva">Proteção auditiva</option>
+            <option value="respiratoria">Proteção respiratória</option>    
+            <option value="ocular_facial">Proteção ocular e facial</option>
+            <option value="superiores">Proteção dos membros superiores</option>
+            <option value="inferiores">Proteção dos membros inferiores</option>
+            <option value="quedas">Proteção contra quedas</option>
+        </select>
+        <button type="submit">Cadastrar</button>
+    </form>
+</main>
+{% if messages %}
+<ul class="lista-sucesso-erro">
+    {% for message in messages %}
+        
+            <li style="color: {% if message.tags == 'error' %}red{% else %}green{% endif %};">
+                {{ message }}
+            </li>
+        
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock content %}

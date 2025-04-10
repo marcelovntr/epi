@@ -1,0 +1,112 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container-editar-epi{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 60%;
+    align-items: center;
+    margin: 80px auto;
+    }
+
+.tabela-epi {
+min-width: 500px;
+background-color: rgb(248, 247, 247);
+border-radius: 4px;   
+border-collapse: separate;
+border-spacing: 0;
+overflow: hidden;
+margin-top: 50px;
+}  
+
+.tabela-cabecalho-epi{
+    text-align: center;
+    background-color: rgb(93, 176, 245);
+    
+}
+
+.tabela-corpo-epi{
+    text-align: center;
+    padding: 8px;
+}
+
+.tabela-epi th, .tabela-epi td {
+text-align: center;
+padding: 10px;
+}
+
+.tabela-epi tr:nth-child(even) {
+background-color: #bedff1; /* Alternância de cores nas linhas */
+}
+
+.tabela-corpo-epi a{
+text-decoration: none;
+padding: 4px 8px;
+border-radius: 4px;
+font-size: 0.8em;
+background: transparent;
+}
+.tabela-corpo-epi a:first-child{
+color:#f33b54;
+font-weight: bold;
+border : 1px solid #f33b54;
+}
+.tabela-corpo-epi a:last-child{
+color:#1da746;
+font-weight: bold;
+border : 1px solid #1da746;
+transition: all 0.3s ease-in-out;
+}
+.tabela-corpo-epi a:last-child:hover{
+    background-color:#1da746;
+    color: azure;
+
+}
+.tabela-corpo-epi button{
+color:#f33b54;
+font-weight: bold;
+border : 1px solid #f33b54;
+padding: 4px 8px;
+border-radius: 4px;
+font-size: 0.8em;
+background: transparent;
+transition: all 0.3s ease-in-out;
+}
+
+.tabela-corpo-epi button:hover{
+    background-color: #f33b54;
+    color: azure;
+}
+.lista-epi{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 32px;
+    list-style: none;
+    
+}
+.lista-epi li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+    list-style: none;
+    background-color: rgb(127, 60, 182);
+    min-width: 600px;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.lista-epi a {
+    text-decoration: none;
+}
+
+.botoes-epi{
+display: flex;
+flex-direction: row;
+gap: 8px;
+justify-content: center;
+}

@@ -20,6 +20,28 @@ function confirmarExclusao(id) {
 
 console.log("JS funcionando!");
 
+function confirmarExclusaoEpi(id) {
+    Swal.fire({
+        title: 'Quer mesmo excluir o EPI?',
+        text: 'Essa ação não poderá ser desfeita!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Excluir',
+        cancelButtonText: 'Cancelar',
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6'
+        // customClass: {
+        //     popup: 'swal-pequeno'
+        //   }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById('form-excluir-' + id).submit();
+        }
+    });
+}
+
+console.log("JS funcionando2222!");
+
 // .swal-pequeno {
 //     width: 300px !important; /* tamanho reduzido */
 //     font-size: 0.9rem;       /* texto um pouco menor */
