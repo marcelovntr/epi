@@ -87,3 +87,8 @@ def editar_equipamento(request, id):
     tipo = request.POST.get('tipo')
     Equipamentos.objects.filter(id=id).update(nome=nome, tipo=tipo)
     return redirect('listagem_equipamentos')
+
+##################CONTROLE#######################
+
+def cadastrar_controle(request):
+    return render(request, 'epi_app/pages/controle.html')
