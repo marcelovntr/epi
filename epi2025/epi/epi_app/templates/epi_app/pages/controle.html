@@ -1,0 +1,63 @@
+{% extends "epi_app/global/index.html" %} 
+{% load static %} 
+{% block title%}Controle de EPIs{% endblock title %} 
+{% block css %}
+<link rel="stylesheet" href="{% static 'epi_app/css/controle.css' %}" />
+{% endblock css %}
+{% block content %}
+
+{% if messages %}
+<ul class="lista-sucesso-erro-controle">
+    {% for message in messages %}
+        
+            <li style="color: {% if message.tags == 'error' %}red{% else %}green{% endif %};">
+                {{ message }}
+            </li>
+        
+    {% endfor %}
+</ul>
+{% endif %}
+
+<main class="container-controle">
+  <h1>controle de epi</h1>
+ <form action="{% url 'cadastrar_controle' %}" method="post">
+        {% csrf_token %}
+        <label for="equipamento">Equipamento</label>
+        <input type="text" name="equipamento" placeholder="Equipamento" required>
+        <label for="colaborador">Colaborador</label>
+        <input type="text" name="colaborador" placeholder="Colaborador" required>
+        <div class="container-datas"> 
+            <div class="container-data-individual">
+                <label for="data-emprestimo">Data do empréstimo</label>
+                <input type="date" name="data-emprestimo" placeholder="Data" required>
+            </div>
+            <div class="container-data-individual">
+                <label for="data-prevista">Data prevista da devolução</label>
+                <input type="date" name="data-prevista" placeholder="Data para entrega" required>
+            </div>
+        </div>
+        <label for="status">Status</label>
+        <select name="status">
+            <option value="" disabled selected>Selecione o status</option>
+            <option value="emprestado">Emprestado</option>
+            <option value="em-uso">Em uso</option>
+            <option value="devolvido">Devolvido</option>
+            <option value="perdido">Perdido</option>
+            <option value="danificado">Danificado</option>
+            <option value="fornecido">Fornecido</option>
+        </select>
+        <label for="condicoes">Condiçõe do equipamento no empréstimo</label>
+        <input type="text" name="condicoes" placeholder="Condição do equipamento" required>
+        <label for="data-devolucao">Data da devolução</label>
+        <input type="date" name="data-devolucao" placeholder="Data entregue" required>
+        <label for="observacoes">Observações na devolução/perda</label>
+        <input type="text" name="observacoes" placeholder="Observações" required>
+
+        <button type="submit">Salvar</button>
+    </form>
+</main>
+
+
+    {% endblock content %}
+  
+

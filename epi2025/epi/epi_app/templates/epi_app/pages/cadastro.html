@@ -1,11 +1,23 @@
 {% extends "epi_app/global/index.html" %}
 {% load static %}
 {% block title %}Cadastro Colaboradores{% endblock title %}
-{% comment %} {% block css %}
+{% block css %}
     <link rel="stylesheet" href="{% static 'epi_app/css/cadastro_colaborador.css' %}" />
-{% endblock css %} {% endcomment %}
+{% endblock css %} 
 
 {% block content %}
+
+{% if messages %}
+    <ul class="lista-sucesso-erro">
+        {% for message in messages %}
+            
+                <li style="color: {% if message.tags == 'error' %}red{% else %}green{% endif %};">
+                    {{ message }}
+                </li>
+            
+        {% endfor %}
+    </ul>
+{% endif %}
 
     <main class="container-cadastro">
         <h1>cadastrar colaborador</h1>
@@ -30,15 +42,5 @@
     {% endif %} {% endcomment %}
   
     </main>
-    {% if messages %}
-    <ul class="lista-sucesso-erro">
-        {% for message in messages %}
-            
-                <li style="color: {% if message.tags == 'error' %}red{% else %}green{% endif %};">
-                    {{ message }}
-                </li>
-            
-        {% endfor %}
-    </ul>
-    {% endif %}
+    
 {% endblock content %}

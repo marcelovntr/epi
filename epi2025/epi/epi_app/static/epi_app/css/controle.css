@@ -4,69 +4,82 @@
     box-sizing: border-box;
 }
 
-.container-cadastro-epi {
+.container-controle{
     max-width: 600px;
-    max-height: 400px;
+    min-height: 650px;
+    max-height: 800px;
     margin: 150px auto 50px auto;
     padding: 20px;
     background-color: #8eb9e4;
     border-radius: 16px;
     font-family: monospace;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
 }
 
-.container-cadastro-epi h1 {
+.container-controle h1{
     text-align: center;
     margin-bottom: 20px;
     color: rgb(229, 241, 237);
 }
 
-.container-cadastro-epi form {
+.container-controle form{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0px;
 }
 
-.container-cadastro-epi label {
+.container-controle label{
     font-size: 0.8em;
     color: rgb(240, 245, 243);
-    padding: 0px 64px;
+    padding: 0px 16px;
     align-self: flex-start;
+    margin-left: 32px;
 }
 
-.container-cadastro-epi input {
+.container-controle input{
     width: 80%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 12px;
     background-color: rgb(240, 244, 242);
-    margin-bottom: 8px;
-}
+    margin-bottom: 8px;}
 
-.container-cadastro-epi button {
-    background-color: rgb(240, 244, 242);
-    color: rgb(24, 26, 25);
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background 0.3s;
+.container-datas{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.container-data-individual{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 50%;
-    align-self: center;
-    margin-top: 8px;
-    outline: none;
+}
+.container-data-individual input{
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 12px;
+    background-color: rgb(240, 244, 242);
+    margin-bottom: 8px;
+}
+.container-data-individual label{
+    font-size: 0.8em;
+    color: rgb(240, 245, 243);
+    padding: 0px 16px;
+    align-self: flex-start;
+    margin-left: -16px;
 }
 
-
-.container-cadastro-epi button:hover {
-    background-color: rgb(92, 150, 197);
-    color: rgb(236, 243, 240);
-}
-
-.container-cadastro-epi select {
+.container-controle select{
     width: 80%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -76,15 +89,8 @@
     margin-bottom: 8px;
     outline: none;
 }
-.container-cadastro-epi select:hover {
-    border-color:  #70f1bc;
-}
-.container-cadastro-epi select:focus {
-    border-color:  #70f1bc;
-    background-color: #b7f7dc;
-}
 
-.lista-sucesso-erro-epi{
+.lista-sucesso-erro-controle{
     list-style: none;
     position: fixed;
     top: 100px;
@@ -92,7 +98,7 @@
     min-width: 500px;
     min-height: 50px;
 }
-.lista-sucesso-erro-epi li{
+.lista-sucesso-erro-controle li{
     margin: 10px auto;
     padding: 10px;
     background: rgb(240, 244, 242);
