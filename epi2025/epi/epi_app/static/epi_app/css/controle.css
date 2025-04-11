@@ -28,7 +28,6 @@
 .container-controle form{
     display: flex;
     flex-direction: column;
-    background-color: rgb(28, 161, 161);
     align-items: center;
     gap: 0px;
 }
@@ -38,6 +37,7 @@
     color: rgb(240, 245, 243);
     padding: 0px 16px;
     align-self: flex-start;
+    margin-left: 32px;
 }
 
 .container-controle input{
@@ -49,8 +49,65 @@
     background-color: rgb(240, 244, 242);
     margin-bottom: 8px;}
 
-.container-data{
+.container-datas{
+    width: 80%;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
+}
+.container-data-individual{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+.container-data-individual input{
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 12px;
+    background-color: rgb(240, 244, 242);
+    margin-bottom: 8px;
+}
+.container-data-individual label{
+    font-size: 0.8em;
+    color: rgb(240, 245, 243);
+    padding: 0px 16px;
+    align-self: flex-start;
+    margin-left: -16px;
+}
+
+.container-controle select{
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 12px;
+    background-color: rgb(240, 244, 242);
+    margin-bottom: 8px;
+    outline: none;
+}
+
+.lista-sucesso-erro-controle{
+    list-style: none;
+    position: fixed;
+    top: 100px;
+    right: 550px;
+    min-width: 500px;
+    min-height: 50px;
+}
+.lista-sucesso-erro-controle li{
+    margin: 10px auto;
+    padding: 10px;
+    background: rgb(240, 244, 242);
+    border-style: groove;
+    border: solid 1px #12522f;
+    border-radius: 8px;
+    font-weight: bold;
+    min-width: 90%;
+    min-height: 90%;
+    display: block;
+    text-align: center;
 }

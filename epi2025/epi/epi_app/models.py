@@ -31,3 +31,23 @@ class Equipamentos(models.Model):
 
     def __str__(self):
         return f"EPI({self.nome} - {self.get_tipo_display()})"
+
+class Controle(models.Model):
+    TIPO_STATUS = [
+        ('emprestado', 'Emprestado'),
+        ('em-uso', 'Em uso'),
+        ('devolvido', 'Devolvido'),
+        ('perdido', 'Perdido'),
+        ('danificado', 'Danificado'),
+        ('fornecido', 'Fornecido'),
+    ]
+    equipamento = models.CharField(max_length=100)
+    colaborador = models.CharField(max_length=100)
+    data_emprestimo = models.DateField()
+    data_prevista = models.DateField()
+    status = models.CharField(max_length=20, choices=TIPO_STATUS)
+    condicoes = models.TextField()
+    data_devolucao = models.DateField()
+    observacoes = models.TextField()
+    criado_em = models.DateTimeField(auto_now_add=True)
+    alterado_em = models.DateTimeField(auto_now=True)

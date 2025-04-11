@@ -8,6 +8,19 @@
 
 {% block content %}
 
+{% if messages %}
+<ul class="lista-sucesso-erro-epi">
+    {% for message in messages %}
+        
+            <li style="color: {% if message.tags == 'error' %}red{% else %}green{% endif %};">
+                {{ message }}
+            </li>
+        
+    {% endfor %}
+</ul>
+{% endif %}
+
+
 <main class="container-cadastro-epi">
     <h1>cadastro de EPI</h1>
 
@@ -29,16 +42,6 @@
         <button type="submit">Cadastrar</button>
     </form>
 </main>
-{% if messages %}
-<ul class="lista-sucesso-erro">
-    {% for message in messages %}
-        
-            <li style="color: {% if message.tags == 'error' %}red{% else %}green{% endif %};">
-                {{ message }}
-            </li>
-        
-    {% endfor %}
-</ul>
-{% endif %}
+
 
 {% endblock content %}

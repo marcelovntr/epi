@@ -1,10 +1,22 @@
 {% extends "epi_app/global/index.html" %} 
 {% load static %} 
-{% block title%}Controle de EPIs{% endblock title %} {% comment %} 
+{% block title%}Controle de EPIs{% endblock title %} 
 {% block css %}
-<link rel="stylesheet" href="{% static 'epi_app/css/controle_epi.css' %}" />
-{% endblock css %} {% endcomment %} 
+<link rel="stylesheet" href="{% static 'epi_app/css/controle.css' %}" />
+{% endblock css %}
 {% block content %}
+
+{% if messages %}
+<ul class="lista-sucesso-erro-controle">
+    {% for message in messages %}
+        
+            <li style="color: {% if message.tags == 'error' %}red{% else %}green{% endif %};">
+                {{ message }}
+            </li>
+        
+    {% endfor %}
+</ul>
+{% endif %}
 
 <main class="container-controle">
   <h1>controle de epi</h1>
@@ -14,14 +26,19 @@
         <input type="text" name="equipamento" placeholder="Equipamento" required>
         <label for="colaborador">Colaborador</label>
         <input type="text" name="colaborador" placeholder="Colaborador" required>
-        <div class="container-data"> 
-            <label for="data-emprestimo">Data do empréstimo</label>
-            <input type="date" name="data-emprestimo" placeholder="Data" required>
-            <label for="data-prevista">Data prevista da devolução</label>
-            <input type="date" name="data-prevista" placeholder="Data para entrega" required>
+        <div class="container-datas"> 
+            <div class="container-data-individual">
+                <label for="data-emprestimo">Data do empréstimo</label>
+                <input type="date" name="data-emprestimo" placeholder="Data" required>
+            </div>
+            <div class="container-data-individual">
+                <label for="data-prevista">Data prevista da devolução</label>
+                <input type="date" name="data-prevista" placeholder="Data para entrega" required>
+            </div>
         </div>
         <label for="status">Status</label>
         <select name="status">
+            <option value="" disabled selected>Selecione o status</option>
             <option value="emprestado">Emprestado</option>
             <option value="em-uso">Em uso</option>
             <option value="devolvido">Devolvido</option>
@@ -39,6 +56,8 @@
         <button type="submit">Salvar</button>
     </form>
 </main>
+
+
     {% endblock content %}
   
 
