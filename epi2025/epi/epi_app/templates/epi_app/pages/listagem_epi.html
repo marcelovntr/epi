@@ -29,7 +29,7 @@
                         <td>
                             <div class="botoes-epi">
                             {% comment %} <a href="{% url 'deletar_colaborador' epi.id %}">Excluir</a>  {% endcomment %}
-                            <form id="form-excluir-{{ epi.id }}" action="{% url 'deletar_equipamento' epi.id %}" method="post">
+                            <form id="form-excluir2-{{ epi.id }}" action="{% url 'deletar_equipamento' epi.id %}" method="post">
                                 {% csrf_token %}
                                 <button type="button" onclick="confirmarExclusaoEpi('{{ epi.id }}')">Excluir</button>
                             </form>
