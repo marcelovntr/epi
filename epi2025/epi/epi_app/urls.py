@@ -16,6 +16,6 @@ urlpatterns = [
     path('deletar_epi/<int:id>', views.deletar_equipamento, name='deletar_equipamento'),
 
     path('controle/', views.cadastrar_controle, name='cadastrar_controle'),
-    
+    path('listagem_controle/', views.listar_controle, name='listar_controle'),
 
 ]

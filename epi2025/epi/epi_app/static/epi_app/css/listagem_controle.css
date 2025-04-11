@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container-listar-controle{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 60%;
+    align-items: center;
+    margin: 80px auto;
+}
+
+.tabela-lista-controle {
+    min-width: 500px;
+    background-color: rgb(248, 247, 247);
+    border-radius: 4px;   
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    margin-top: 50px;
+}
+.cabecalho-lista-controle{
+    text-align: center;
+    background-color: rgb(93, 176, 245);
+    
+}
+
+.corpo-lista-controle{
+    text-align: center;
+    padding: 8px;
+}
+
+.tabela-lista-controle th, .tabela-lista-controle td{
+    text-align: center;
+    padding: 10px;
+}
+.tabela-lista-controle tr:nth-child(even) {
+    background-color: #bedff1;
+}

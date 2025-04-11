@@ -130,3 +130,7 @@ def cadastrar_controle(request):
         messages.success(request, f'Controle: {equipamento} cadastrado com sucesso!')
         return redirect('cadastrar_controle')
     return render(request, 'epi_app/pages/controle.html', context={'controle': controle})
+
+def listar_controle(request):
+    lista_controle = Controle.objects.all()
+    return render(request, 'epi_app/pages/listagem_controle.html', context={'controladoria': lista_controle})    
