@@ -41,8 +41,8 @@ class Controle(models.Model):
         ('danificado', 'Danificado'),
         ('fornecido', 'Fornecido'),
     ]
-    equipamento = models.CharField(max_length=100)
-    colaborador = models.CharField(max_length=100)
+    equipamento = models.ForeignKey(Equipamentos, on_delete=models.PROTECT)
+    colaborador = models.ForeignKey(Colaboradores, on_delete=models.PROTECT)
     data_emprestimo = models.DateField()
     data_prevista = models.DateField()
     status = models.CharField(max_length=20, choices=TIPO_STATUS)

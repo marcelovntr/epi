@@ -92,11 +92,13 @@ def editar_equipamento(request, id):
 ##################CONTROLE#######################
 
 def cadastrar_controle(request):
+    colaboradores = Colaboradores.objects.all()
+    equipamentos = Equipamentos.objects.all()
     if request.method == 'GET':
-        return render(request, 'epi_app/pages/controle.html')
+        return render(request, 'epi_app/pages/controle.html',context={'colaboradores': colaboradores, 'equipamentos': equipamentos})
     
     if request.method == 'POST':
-        equipamento = request.POST.get('equipamento', '').strip()
+        equipamento = request.POST.get('epi', '').strip()
         colaborador = request.POST.get('colaborador', '').strip()
         data_emprestimo = request.POST.get('data-emprestimo', '').strip()
         data_prevista = request.POST.get('data-prevista', '').strip()
@@ -107,15 +109,24 @@ def cadastrar_controle(request):
 
         if not equipamento or not colaborador or not data_emprestimo or not data_prevista or not status or not condicoes:
             messages.error(request, 'Preencha os campos obrigatórios.')
-            return render(request, 'epi_app/pages/controle.html')
-        
+            return render(request, 'epi_app/pages/controle.html', context={
+                'colaboradores': colaboradores,
+                'equipamentos': equipamentos
+        })
         try:
             data_emprestimo = datetime.strptime(data_emprestimo, '%Y-%m-%d').date()
             data_prevista = datetime.strptime(data_prevista, '%Y-%m-%d').date()
             data_devolucao = datetime.strptime(data_devolucao, '%Y-%m-%d').date() if data_devolucao else None
-        except ValueError:
-            messages.error(request, 'Formato de data inválido.')
-            return render(request, 'epi_app/pages/controle.html')
+        
+            equipamento = Equipamentos.objects.get(id=int(equipamento))
+            colaborador = Colaboradores.objects.get(id=int(colaborador))
+        
+        except (ValueError, Equipamentos.DoesNotExist, Colaboradores.DoesNotExist):
+            messages.error(request, 'Erro ao processar os dados. Verifique os IDs fornecidos.')
+            return render(request, 'epi_app/pages/controle.html', context={
+                'colaboradores': colaboradores,
+                'equipamentos': equipamentos
+            })
         
         controle = Controle.objects.create(
             equipamento= equipamento,
@@ -127,10 +138,12 @@ def cadastrar_controle(request):
             data_devolucao= data_devolucao,
             observacoes= observacoes
         )
-        messages.success(request, f'Controle: {equipamento} cadastrado com sucesso!')
+        messages.success(request, f'Controle: {equipamento.nome} do colaborador: {colaborador.nome} cadastrado com sucesso!')
         return redirect('cadastrar_controle')
-    return render(request, 'epi_app/pages/controle.html', context={'controle': controle})
+    return render(request, 'epi_app/pages/controle.html', context={'controle': controle,
+          'colaboradores': colaboradores,
+        'equipamentos': equipamentos})
 
 def listar_controle(request):
     lista_controle = Controle.objects.all()
-    return render(request, 'epi_app/pages/listagem_controle.html', context={'controladoria': lista_controle})    
+    return render(request, 'epi_app/pages/listagem_controle.html', context={'controladoria': lista_controle,})    

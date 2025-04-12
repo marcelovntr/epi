@@ -24,8 +24,8 @@
         <tbody class="corpo-lista-controle">
             {% for meliante in controladoria %}
                 <tr>
-                    <td>{{ meliante.colaborador }}</td>
-                    <td>{{ meliante.equipamento }}</td>
+                    <td>{{ meliante.colaborador.nome }}</td>
+                    <td>{{ meliante.equipamento.nome }}</td>
                     {% comment %} | vem do: filtro do Django Template Language (DTL). {% endcomment %}
                     <td>{{ meliante.data_emprestimo|date:"d/m/Y" }}</td>
                     {% comment %} internamente, o Django faz algo parecido com:

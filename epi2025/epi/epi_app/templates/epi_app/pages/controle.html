@@ -22,10 +22,26 @@
   <h1>controle de epi</h1>
  <form action="{% url 'cadastrar_controle' %}" method="post">
         {% csrf_token %}
-        <label for="equipamento">Equipamento</label>
-        <input type="text" name="equipamento" placeholder="Equipamento" required>
-        <label for="colaborador">Colaborador</label>
-        <input type="text" name="colaborador" placeholder="Colaborador" required>
+        <select name="epi">
+            <option value="" disabled selected>Selecione o EPI</option>
+            {% for epi in equipamentos %}
+                <option value="{{ epi.id }}">{{ epi.nome }}</option>
+            {% endfor %}
+        </select>
+        <!-- <label for="equipamento">Equipamento</label>
+        <input type="text" name="equipamento" placeholder="Equipamento" required> -->
+        
+        <select name="colaborador">
+            <option value="" disabled selected>Selecione o colaborador</option>
+            {% for colaborador in colaboradores %}
+                <option value="{{ colaborador.id }}">{{ colaborador.nome }}</option>                
+            {% endfor %}
+        </select>
+        <!-- <label for="colaborador">Colaborador</label>
+        <input type="text" name="colaborador" placeholder="Colaborador" required> -->
+       
+        
+        
         <div class="container-datas"> 
             <div class="container-data-individual">
                 <label for="data-emprestimo">Data do empréstimo</label>
