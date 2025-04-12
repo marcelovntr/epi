@@ -21,53 +21,49 @@ A aplicação permite o cadastro e controle de colaboradores, EPIs, usuários do
 - 🔁 **Empréstimo e Devolução de Equipamentos**
 - 📈 **Histórico de Empréstimos**
 - 🔐 **Login e Controle de Acesso**
-- 📱 **Interface Responsiva para Web e Mobile**
+- 📱 **Interface Responsiva para Web**
 
 ## 💻 Tecnologias Utilizadas
 
 **Frontend:**
 - HTML5
-- CSS3 / TailwindCSS / Bootstrap
-- JavaScript / TypeScript
-- Framework: Angular / React / Vue
-
+- CSS3
+- JavaScript
+- 
 **Backend:**
-- Node.js com Express / Python Flask / PHP / Java Spring
-
+-  Python / Django 
 **Banco de Dados:**
-- MySQL / PostgreSQL / MongoDB
-
+- MySQL
 **Outros:**
 - Git e GitHub para versionamento
-- Docker (opcional)
 - Figma para prototipação (opcional)
 
 ## 🚀 Como Executar o Projeto
 
 1. Clone o repositório:
-```bash
-git clone https://github.com/seu-usuario/controle-epi-web.git
-```
+bash
+git clone https://github.com/seu-usuario/epi
+
 
 2. Acesse o diretório do projeto:
-```bash
-cd controle-epi-web
-```
+bash
+cd epi
+
 
 3. Instale as dependências (frontend e backend):
-```bash
+bash
 npm install
-```
+
 
 4. Inicie o servidor:
-```bash
+bash
 npm start
-```
+
 
 5. Acesse o sistema no navegador:
-```
-http://localhost:3000
-```
+
+http://127.0.0.1:8000
+
 
 ## ✅ Requisitos Atendidos
 
@@ -80,11 +76,11 @@ http://localhost:3000
 
 ## 👨‍💻 Equipe de Desenvolvimento
 
-- Nome 1 – Desenvolvedor Frontend  
-- Nome 2 – Desenvolvedor Backend  
-- Nome 3 – Analista de Requisitos  
-- Nome 4 – Designer UI/UX (se houver)
-
+- Nome 1 – Marcelo 
+- Nome 2 – Kauã
+- Nome 3 – José Gabriel de Oliveira
+- Nome 4 – Melissa
+- nome 5 - Suellen
 ## 📄 Licença
 
 Este projeto é de uso acadêmico, desenvolvido para fins educacionais. Todos os direitos reservados aos autores e à instituição de ensino.
