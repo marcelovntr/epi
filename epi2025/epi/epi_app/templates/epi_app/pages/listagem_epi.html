@@ -6,7 +6,17 @@
 {% endblock css %} {% endcomment %}
 
 {% block content %}
-
+{% if messages %}
+    <ul class="lista-sucesso-erro-epi">
+        {% for message in messages %}
+            
+                <li style="color: {% if message.tags == 'error' %}red{% else %}green {% endif %};">
+                    {{ message }}
+                </li>
+            
+        {% endfor %}
+    </ul>
+{%endif%}
 <main class='container-editar-epi'>
     <h1>EPIs Ativos</h1>
         <p>pesquisar por usuário</p>
