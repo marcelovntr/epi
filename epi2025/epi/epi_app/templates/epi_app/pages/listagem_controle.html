@@ -11,7 +11,10 @@
     <h1>Lista Controle EPIs</h1>
     <p>pesquisar por colaborador + equipamento + datas</p>
     <input type="text" placeholder="Buscar por nome">
-    <table class="tabela-lista-controle">
+
+    <!-- código para mensagem de: não há dados disponíveis.-->
+     {% if controladoria %}
+        <table class="tabela-lista-controle">
         <thead class="cabecalho-lista-controle">
             <tr>
                 <th>Colaborador</th>
@@ -36,5 +39,8 @@
             {% endfor %}
         </tbody>
     </table>
+    {% else %}
+        <p>Ainda não há dados disponíveis!</p>
+    {% endif %}
     </main>
 {% endblock content %}

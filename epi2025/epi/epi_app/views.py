@@ -141,9 +141,10 @@ def cadastrar_controle(request):
         try:
             data_emprestimo = datetime.strptime(data_emprestimo, '%Y-%m-%d').date()
             data_prevista = datetime.strptime(data_prevista, '%Y-%m-%d').date()
-            data_devolucao = datetime.strptime(data_devolucao, '%Y-%m-%d').date() #if data_devolucao else None
-        
-            if data_emprestimo < data_prevista or data_prevista < datetime.today().date():
+            # if data_devolucao: 
+            data_devolucao = datetime.strptime(data_devolucao, '%Y-%m-%d').date()
+           
+            if data_emprestimo > data_prevista or data_emprestimo > data_devolucao:
                 messages.error(request, 'A data de empréstimo deve ser menor que a data prevista e a data de devolução.')
                 return render(request, 'epi_app/pages/controle.html', context={
                     'colaboradores': colaboradores,
