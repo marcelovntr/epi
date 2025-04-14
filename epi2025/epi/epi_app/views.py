@@ -29,14 +29,30 @@ def relatorios(request):
     return render(request, 'epi_app/pages/relatorios.html')
 
 def editar_colaborador(request, id):
+    #poderia antes: colaborador_por_id = get_object_or_404(Colaboradores, id=id)
     if request.method == 'GET':
+        #aí não necessitaria esse:
         colaborador_por_id = Colaboradores.objects.get(id=id)
         return render(request, 'epi_app/pages/editar.html', context={'colaborador': colaborador_por_id})
+    
+    colaborador_por_id = Colaboradores.objects.get(id=id)  
     nome = request.POST.get('nome')
     cargo = request.POST.get('cargo')
     setor = request.POST.get('setor')
+    
+    if not nome or not cargo or not setor:
+        messages.error(request, 'Todos os campos são obrigatórios.')
+        return render(request, 'epi_app/pages/editar.html', context={'colaborador': colaborador_por_id})
+
+    # colaborador_por_id.nome = nome
+    # colaborador_por_id.cargo = cargo
+    # colaborador_por_id.setor = setor
+    # colaborador_por_id.save()
     Colaboradores.objects.filter(id=id).update(nome=nome, cargo=cargo, setor=setor)
-    return redirect('listagem_editar')
+    messages.success(request, f'Dados do colaborador: {nome} atualizados com sucesso!')
+    #return render(request, 'epi_app/pages/editar.html', context={'colaborador': colaborador_por_id})
+    return redirect('listagem_editar')  
+   
 
 @require_POST
 def deletar_colaborador(request, id):
