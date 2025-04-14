@@ -97,12 +97,21 @@ def deletar_equipamento(request, id):
     return redirect('listagem_equipamentos')
 
 def editar_equipamento(request, id):
+    #seria melhor aqui: equipamento_por_id = Equipamentos.objects.get(id=id)
     if request.method == 'GET':
         equipamento_por_id = Equipamentos.objects.get(id=id)
         return render(request, 'epi_app/pages/editar_epi.html', context={'epi': equipamento_por_id})
+    
+    equipamento_por_id = Equipamentos.objects.get(id=id)
     nome = request.POST.get('nome')
     tipo = request.POST.get('tipo')
+    
+    if not nome or not tipo:
+        messages.error(request, 'Ambos campos são obrigatórios.')
+        return render(request, 'epi_app/pages/editar_epi.html', context={'epi': equipamento_por_id})
+    
     Equipamentos.objects.filter(id=id).update(nome=nome, tipo=tipo)
+    messages.success(request, f'Dados do equipamento: {nome} atualizados com sucesso!')
     return redirect('listagem_equipamentos')
 
 ##################CONTROLE#######################
