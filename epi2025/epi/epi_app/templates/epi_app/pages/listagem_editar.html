@@ -6,7 +6,15 @@
 {% endblock css %}
 
 {% block content %}
-
+{% if messages %}
+    <ul class="lista-sucesso-erro">
+        {% for message in messages %}
+            <li style="color: {% if message.tags == 'error' %}red{% else %}green {% endif %};">
+                {{ message }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
 <main class='container-editar'>
     <h1>Colaboradores Ativos</h1>
         <p>pesquisar por usuário</p>
