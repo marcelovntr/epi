@@ -69,10 +69,10 @@
     border: 1px solid #f5f6f8;
     border-radius: 8px;
     color: #f6f8fa;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.15s ease-in-out;
 }
 .msg-sem-dados a:hover{
-    background-color: #f0f2f5;
+    background-color: #ffffff;
     color: #5a93dd;
     border: 1px solid #6892e7;
 }
