@@ -9,11 +9,11 @@
 
 <main class='container-listar-controle'>
     <h1>Lista Controle EPIs</h1>
-    <p>pesquisar por colaborador + equipamento + datas</p>
-    <input type="text" placeholder="Buscar por nome">
-
-    <!-- código para mensagem de: não há dados disponíveis.-->
+       <!-- código para mensagem de: não há dados disponíveis.-->
      {% if controladoria %}
+     <p>pesquisar por colaborador + equipamento + datas</p>
+     <input type="text" placeholder="Buscar por nome">
+
         <table class="tabela-lista-controle">
         <thead class="cabecalho-lista-controle">
             <tr>
@@ -40,7 +40,17 @@
         </tbody>
     </table>
     {% else %}
-        <p>Ainda não há dados disponíveis!</p>
+        <div class="msg-sem-dados">
+            <img src="https://cdn-icons-png.flaticon.com/512/3685/3685327.png" 
+            alt="sem dados" style="width: 300px; text-align: center;">
+            <p>Ainda não há dados disponíveis!</p>
+            <div class="linha">
+              
+                <p>Inicie um registro por aqui:</p>
+                <a href="{% url 'cadastrar_controle' %} ">Registrar Controle</a>
+            </div>   
+        </div>
+        
     {% endif %}
     </main>
 {% endblock content %}
