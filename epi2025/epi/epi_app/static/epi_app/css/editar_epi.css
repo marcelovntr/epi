@@ -94,3 +94,24 @@
     display: block;
     text-align: center;
 }
+.lista-sucesso-erro{
+    list-style: none;
+    position: fixed;
+    top: 100px;
+    right: 550px;
+    min-width: 500px;
+    min-height: 50px;
+}
+.lista-sucesso-erro li{
+    margin: 10px auto;
+    padding: 10px;
+    background: rgb(240, 244, 242);
+    border-style: groove;
+    border: solid 1px #12522f;
+    border-radius: 8px;
+    font-weight: bold;
+    min-width: 90%;
+    min-height: 90%;
+    display: block;
+    text-align: center;
+}

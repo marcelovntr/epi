@@ -7,7 +7,7 @@
 
 {% block content %}
 {% if messages %}
-    <ul class="lista-sucesso-erro-epi">
+    <ul class="lista-sucesso-erro">
         {% for message in messages %}
             
                 <li style="color: {% if message.tags == 'error' %}red{% else %}green {% endif %};">

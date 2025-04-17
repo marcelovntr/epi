@@ -7,7 +7,7 @@
 {% block content %}
 
 {% if messages %}
-<ul class="lista-sucesso-erro-controle">
+<ul class="lista-sucesso-erro">
     {% for message in messages %}
         
             <li style="color: {% if message.tags == 'error' %}red{% else %}green{% endif %};">
@@ -74,6 +74,8 @@
 </main>
 
 
-    {% endblock content %}
-  
+{% endblock content %}
+{% block script %}
+    <script src="{% static 'epi_app/js/sumirMensagens.js' %}"></script>
+{% endblock script %}  
 

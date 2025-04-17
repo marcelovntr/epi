@@ -84,7 +84,7 @@
     background-color: #b7f7dc;
 }
 
-.lista-sucesso-erro-epi{
+.lista-sucesso-erro{
     list-style: none;
     position: fixed;
     top: 100px;
@@ -92,7 +92,7 @@
     min-width: 500px;
     min-height: 50px;
 }
-.lista-sucesso-erro-epi li{
+.lista-sucesso-erro li{
     margin: 10px auto;
     padding: 10px;
     background: rgb(240, 244, 242);

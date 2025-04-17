@@ -62,7 +62,15 @@ def deletar_colaborador(request, id):
     return redirect('listagem_editar') 
 
 def listagem_editar(request):
-    lista_colaboradores = Colaboradores.objects.all()
+    pesquisa = request.GET.get('pesquisa')
+    if pesquisa:
+        lista_colaboradores = Colaboradores.objects.filter(nome__icontains=pesquisa)
+        if len(lista_colaboradores) == 0:
+            #ou: lista_colaboradores.count() == 0:
+            messages.error(request, 'Nenhum colaborador encontrado com esse nome.')
+            lista_colaboradores = Colaboradores.objects.all()
+    else:
+        lista_colaboradores = Colaboradores.objects.all()
     return render(request, 'epi_app/pages/listagem_editar.html', context={'colaboradores': lista_colaboradores})
 
 

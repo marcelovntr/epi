@@ -7,6 +7,17 @@
 
 {% block content %}
 
+{% if messages %}
+    <ul class="lista-sucesso-erro">
+        {% for message in messages %}
+            
+                <li style="color: {% if message.tags == 'error' %}red{% else %}green {% endif %};">
+                    {{ message }}
+                </li>
+            
+        {% endfor %}
+    </ul>
+{%endif%}
 <main class='container-listar-controle'>
     <h1>Lista Controle EPIs</h1>
        <!-- código para mensagem de: não há dados disponíveis.-->
@@ -54,3 +65,6 @@
     {% endif %}
     </main>
 {% endblock content %}
+{% block script %}
+    <script src="{% static 'epi_app/js/sumirMensagens.js' %}"></script>
+{% endblock script %}
