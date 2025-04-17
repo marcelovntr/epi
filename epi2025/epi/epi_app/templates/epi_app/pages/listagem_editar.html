@@ -21,13 +21,16 @@
     <h1>Colaboradores Ativos</h1>
 
     <div class="container-busca">
+        <h4>Pesquisa por Usuário</h4>
         <form action="{% url 'listagem_editar' %}" method="get">
-            <p>pesquisar por usuário</p>
             <input type="text" name="pesquisa" placeholder="Buscar por nome">
             <button type="submit">Buscar</button>
         </form>
         {% if pesquisa %}
-            <span>{{pesquisa.nome}} - {{pesquisa.setor}} - {{pesquisa.cargo}} </span>
+            <div class="texto-icone">
+                <p>Busca: {{pesquisa}} </p>
+                <a href="{% url 'listagem_editar' %}"><img src="https://cdn-icons-png.freepik.com/512/5835/5835309.png" alt="fechar" width="30px"></a> 
+            </div>   
         {% endif %}
     </div>
         
