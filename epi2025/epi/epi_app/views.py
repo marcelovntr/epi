@@ -71,7 +71,8 @@ def listagem_editar(request):
             lista_colaboradores = Colaboradores.objects.all()
     else:
         lista_colaboradores = Colaboradores.objects.all()
-    return render(request, 'epi_app/pages/listagem_editar.html', context={'colaboradores': lista_colaboradores})
+    return render(request, 'epi_app/pages/listagem_editar.html', 
+                  context={'colaboradores': lista_colaboradores, 'pesquisa': pesquisa})
 
 
 ###############EQUIPAMENTOS###############
