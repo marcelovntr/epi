@@ -97,3 +97,64 @@
     display: block;
     text-align: center;
 }
+
+.container-busca{
+    width: 50%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 25px auto;
+    gap: 8px;
+}
+.container-busca form{
+    width: 90%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin-top: 16px;
+}
+.container-busca input{
+    height: 40px;
+    width: 250px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: 1px solid #4d1252;
+}
+.container-busca button{
+    height: 40px;
+    width: 80px;
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid #355bc4;
+    background-color: #ffffff;
+    color: rgb(96, 166, 245);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+.container-busca button:hover{
+    background-color: rgb(93, 176, 245);
+    color: azure;
+    border: none;
+}
+.texto-icone{
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.texto-icone p {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+}

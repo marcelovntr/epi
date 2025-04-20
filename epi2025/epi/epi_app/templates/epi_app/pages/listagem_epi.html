@@ -17,11 +17,24 @@
         {% endfor %}
     </ul>
 {%endif%}
+
 <main class='container-editar-epi'>
     <h1>EPIs Ativos</h1>
-        <p>pesquisar por usuário</p>
-        <input type="text" placeholder="Buscar por nome">
-        
+
+    {% if epis %}
+        <div class="container-busca">
+            <h4>Pesquisa por Usuário</h4>
+            <form action="{% url 'listagem_equipamentos' %}" method="get">
+                <input type="text" name="pesquisa" placeholder="Buscar por nome/tipo">
+                <button type="submit">Buscar</button>
+            </form>
+            {% if pesquisa %}
+                <div class="texto-icone">
+                    <p>Busca: {{pesquisa}} </p>
+                    <a href="{% url 'listagem_equipamentos' %}"><img src="https://cdn-icons-png.freepik.com/512/5835/5835309.png" alt="fechar" width="30px"></a> 
+                </div>   
+            {% endif %}
+        </div>       
         
         <table class="tabela-epi">
             <thead class="tabela-cabecalho-epi">
@@ -50,7 +63,18 @@
                 {% endfor %}
             </tbody>
         </table>
-        
+    {% else %}
+        <div class="msg-sem-dados">
+            <img src="https://cdn-icons-png.flaticon.com/512/1022/1022319.png" 
+            alt="sem dados" style="width: 300px; text-align: center;">
+            <p>Ainda não há dados disponíveis!</p>
+            <div class="linha">
+            
+                <p>Inicie um registro por aqui:</p>
+                <a href="{% url 'cadastrar_equipamento' %} ">Registrar EPI</a>
+            </div>   
+        </div>
+    {% endif %}   
 </main>
   
 

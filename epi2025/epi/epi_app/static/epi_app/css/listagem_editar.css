@@ -188,3 +188,40 @@ background: transparent;
     display: flex;
     align-items: center;
 }
+
+.msg-sem-dados{
+    width: 70%;
+    height: 100%;
+    margin: 40px;
+    text-align: center;
+    font-size: 1.2em;
+   
+}
+.linha{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+    
+}
+.linha p{
+    margin: 0;
+    padding: 0;
+    /* line-height: 1; */
+    align-items: center;
+}
+.linha a{
+    padding: 8px;
+    text-decoration: none;
+    background-color:#74acf5;
+    border: 1px solid #f5f6f8;
+    border-radius: 8px;
+    color: #f6f8fa;
+    transition: all 0.15s ease-in-out;
+}
+.msg-sem-dados a:hover{
+    background-color: #ffffff;
+    color: #5a93dd;
+    border: 1px solid #6892e7;
+}

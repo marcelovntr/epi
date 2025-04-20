@@ -23,34 +23,45 @@
     <h1>Lista Controle EPIs</h1>
        <!-- código para mensagem de: não há dados disponíveis.-->
      {% if controladoria %}
-     <p>pesquisar por colaborador + equipamento + datas</p>
-     <input type="text" placeholder="Buscar por nome">
+        <div class="container-busca">
+            <h4>Pesquisa por Registro de Controle</h4>
+            <form action="{% url 'listar_controle' %}" method="get">
+                <input type="text" name="pesquisa" placeholder="Buscar por nome/EPI/status">
+                <button type="submit">Buscar</button>
+            </form>
+            {% if pesquisa %}
+                <div class="texto-icone">
+                    <p>Busca: {{pesquisa}} </p>
+                    <a href="{% url 'listar_controle' %}"><img src="https://cdn-icons-png.freepik.com/512/5835/5835309.png" alt="fechar" width="30px"></a> 
+                </div>   
+            {% endif %}
+        </div>
 
-        <table class="tabela-lista-controle">
-        <thead class="cabecalho-lista-controle">
-            <tr>
-                <th>Colaborador</th>
-                <th>Equipamento</th>
-                <th>Data Empréstimo</th>
-                <th>Data Devolução</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody class="corpo-lista-controle">
-            {% for meliante in controladoria %}
-                <tr>
-                    <td>{{ meliante.colaborador.nome }}</td>
-                    <td>{{ meliante.equipamento.nome }}</td>
-                    {% comment %} | vem do: filtro do Django Template Language (DTL). {% endcomment %}
-                    <td>{{ meliante.data_emprestimo|date:"d/m/Y" }}</td>
-                    {% comment %} internamente, o Django faz algo parecido com:
-                    data_formatada = data_emprestimo.strftime("%d/%m/%Y") {% endcomment %}
-                    <td>{{ meliante.data_devolucao|date:"d/m/Y" }}</td>
-                    <td>{{ meliante.status }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            <table class="tabela-lista-controle">
+                <thead class="cabecalho-lista-controle">
+                    <tr>
+                        <th>Colaborador</th>
+                        <th>EPI</th>
+                        <th>Data Empréstimo</th>
+                        <th>Data Devolução</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+            <tbody class="corpo-lista-controle">
+                {% for meliante in controladoria %}
+                    <tr>
+                        <td>{{ meliante.colaborador.nome }}</td>
+                        <td>{{ meliante.equipamento.nome }}</td>
+                        {% comment %} | vem do: filtro do Django Template Language (DTL). {% endcomment %}
+                        <td>{{ meliante.data_emprestimo|date:"d/m/Y" }}</td>
+                        {% comment %} internamente, o Django faz algo parecido com:
+                        data_formatada = data_emprestimo.strftime("%d/%m/%Y") {% endcomment %}
+                        <td>{{ meliante.data_devolucao|date:"d/m/Y" }}</td>
+                        <td>{{ meliante.status }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     {% else %}
         <div class="msg-sem-dados">
             <img src="https://cdn-icons-png.flaticon.com/512/3685/3685327.png" 
@@ -64,7 +75,7 @@
         </div>
         
     {% endif %}
-    </main>
+</main>
 {% endblock content %}
 {% block script %}
     <script src="{% static 'epi_app/js/sumirMensagens.js' %}"></script>

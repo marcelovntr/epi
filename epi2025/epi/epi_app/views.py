@@ -3,6 +3,7 @@ from django.contrib import messages
 from .models import Colaboradores, Equipamentos, Controle
 from django.views.decorators.http import require_POST
 from datetime import datetime
+from django.db.models import Q
 
 # Create your views here.
 def home(request):
@@ -64,7 +65,11 @@ def deletar_colaborador(request, id):
 def listagem_editar(request):
     pesquisa = request.GET.get('pesquisa')
     if pesquisa:
-        lista_colaboradores = Colaboradores.objects.filter(nome__icontains=pesquisa)
+        lista_colaboradores = Colaboradores.objects.filter(
+            Q(nome__icontains=pesquisa) |
+            Q(setor__icontains=pesquisa) |
+            Q(cargo__icontains=pesquisa)
+            )
         if len(lista_colaboradores) == 0:
             #ou: lista_colaboradores.count() == 0:
             messages.error(request, 'Nenhum colaborador encontrado com esse nome.')
@@ -95,8 +100,19 @@ def cadastro_equipamento(request):
     return render(request, 'epi_app/pages/cadastro_epi.html', context={'equipamento': equipamento})
 
 def listagem_equipamentos(request):
-    lista_epi = Equipamentos.objects.all()
-    return render(request, 'epi_app/pages/listagem_epi.html', context={'epis': lista_epi})
+    pesquisa = request.GET.get('pesquisa')
+    if pesquisa:
+        lista_epi = Equipamentos.objects.filter(
+            # | é OR
+            Q(nome__icontains=pesquisa) |
+            Q(tipo__icontains=pesquisa)
+            )
+        if len(lista_epi) == 0:
+            messages.error(request, 'Equipamento ou tipo não encontrado.')
+            lista_epi = Equipamentos.objects.all()
+    else:
+        lista_epi = Equipamentos.objects.all()
+    return render(request, 'epi_app/pages/listagem_epi.html', context={'epis': lista_epi, 'pesquisa': pesquisa})
 
 @require_POST
 def deletar_equipamento(request, id):
@@ -187,5 +203,17 @@ def cadastrar_controle(request):
         'equipamentos': equipamentos})
 
 def listar_controle(request):
-    lista_controle = Controle.objects.all()
-    return render(request, 'epi_app/pages/listagem_controle.html', context={'controladoria': lista_controle,})    
+    pesquisa = request.GET.get('pesquisa')
+    if pesquisa:
+        lista_controle = Controle.objects.filter(
+            # | é OR
+            Q(colaborador__nome__icontains=pesquisa) |
+            Q(equipamento__nome__icontains=pesquisa) |
+            Q(status__icontains=pesquisa)
+            )
+        if len(lista_controle) == 0:
+            messages.error(request, 'Colaborador/equipamento/status não encontrado.')
+            lista_controle = Controle.objects.all()
+    else:
+        lista_controle = Controle.objects.all()
+    return render(request, 'epi_app/pages/listagem_controle.html', context={'controladoria': lista_controle, 'pesquisa': pesquisa})    
