@@ -27,3 +27,9 @@
     height: 40px;
     border-radius: 50%;
 }
+.footer-text{
+    display: flex;
+    width: 60px;
+    height: 60px;
+    background-color: blueviolet;
+}

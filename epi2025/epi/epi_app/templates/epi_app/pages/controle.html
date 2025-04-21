@@ -18,8 +18,14 @@
 </ul>
 {% endif %}
 
+
+<section class="secao-cadastro-cabecalho">
+    <p>Controle de EPIs </p>
+    <img src="{% static 'epi_app\images\iconeregistro.png' %}" alt="icone colaborador">
+</section>
+
 <main class="container-controle">
-  <h1>controle de epi</h1>
+  <h1>Novo Registro</h1>
  <form action="{% url 'cadastrar_controle' %}" method="post">
         {% csrf_token %}
         <select name="epi">

@@ -20,9 +20,13 @@
 </ul>
 {% endif %}
 
+<section class="secao-cadastro-cabecalho">
+    <p>Cadastro de EPIs</p>
+    <img src="{% static 'epi_app\images\epiicone.png' %}" alt="icone epi">
+</section>
 
 <main class="container-cadastro-epi">
-    <h1>cadastro de EPI</h1>
+    <h1>Novo EPI</h1>
 
     <form action="{% url 'cadastro_equipamento' %}" method="post">
         {% csrf_token %}
