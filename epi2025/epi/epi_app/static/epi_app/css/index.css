@@ -8,7 +8,9 @@ html, body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #f3ecec;
+    background-color: #F3F3F3;
+    
+    /* #f3ecec; */
 }
 .main-content {
     flex: 1; /* Só o conteúdo ocupa o espaço restante */

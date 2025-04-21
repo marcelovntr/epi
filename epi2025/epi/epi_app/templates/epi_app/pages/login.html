@@ -1,0 +1,29 @@
+{% extends "epi_app/global/index.html" %}
+{% load static %}
+{% block title %}Página Principal{% endblock title %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'epi_app/css/home.css' %}" />
+{% endblock css %}
+
+{% block content %}
+
+<main class="container-home">
+
+    <div class="container-login">
+       <span>Login</span>
+       <form action="" method="post">
+           {% csrf_token %}
+           <label for="nome">Usuário</label>
+           <input type="text" name="nome" placeholder="usuario@email.com">
+           <label for="cargo">Senha</label>
+           <input type="text" name="cargo">
+           <button type="submit">Acessar</button>
+       </form>
+       <a href="">Cadastrar</a>
+    </div>
+
+</main>
+
+
+
+{% endblock content %}

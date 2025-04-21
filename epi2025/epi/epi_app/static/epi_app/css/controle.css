@@ -27,7 +27,7 @@
 
 .container-controle{
     max-width: 600px;
-    min-height: 650px;
+    min-height: 500px;
     max-height: 800px;
     margin: 60px auto 50px auto;
     padding: 20px;
@@ -68,7 +68,8 @@
     border-radius: 8px;
     font-size: 12px;
     background-color: rgb(240, 244, 242);
-    margin-bottom: 8px;}
+    margin-bottom: 8px;
+}
 
 .container-datas{
     width: 80%;
@@ -131,4 +132,50 @@
     min-height: 90%;
     display: block;
     text-align: center;
+}
+
+
+.campos-condicionais {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+}
+.campos-condicionais label{
+    font-size: 0.8em;
+    color: rgb(240, 245, 243);
+    padding: 0px 16px;
+    align-self: flex-start;
+    margin-left: 32px;
+}
+
+.campos-condicionais input{
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 12px;
+    background-color: rgb(240, 244, 242);
+    margin-bottom: 8px;
+}
+
+.container-controle button{
+    background-color: rgb(240, 244, 242);
+    color: rgb(24, 26, 25);
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.15s;
+    width: 50%;
+    align-self: center;
+    margin-top: 8px;
+    outline: none;
+}
+.container-controle button:hover {
+    background-color: rgb(92, 150, 197);
+    color: rgb(236, 243, 240);
 }

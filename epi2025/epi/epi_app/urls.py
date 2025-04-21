@@ -18,4 +18,6 @@ urlpatterns = [
     path('controle/', views.cadastrar_controle, name='cadastrar_controle'),
     path('listagem_controle/', views.listar_controle, name='listar_controle'),
 
+    path('login/', views.login, name='login'),
+
 ]

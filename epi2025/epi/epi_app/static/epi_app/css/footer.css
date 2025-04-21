@@ -14,7 +14,7 @@
     border-top: rgb(67, 157, 230) solid 1px;
     position: relative;
     flex-shrink: 0;
-    margin-top: 64px;
+    /* margin-top: 64px; */
 }
 .footer-info{
     display: flex;

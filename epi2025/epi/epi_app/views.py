@@ -216,4 +216,8 @@ def listar_controle(request):
             lista_controle = Controle.objects.all()
     else:
         lista_controle = Controle.objects.all()
-    return render(request, 'epi_app/pages/listagem_controle.html', context={'controladoria': lista_controle, 'pesquisa': pesquisa})    
+    return render(request, 'epi_app/pages/listagem_controle.html', context={'controladoria': lista_controle, 'pesquisa': pesquisa})
+
+###########LOGIN E USUÁRIOS################
+def login(request):
+    return render(request, 'epi_app/pages/login.html')
