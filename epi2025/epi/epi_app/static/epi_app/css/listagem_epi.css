@@ -24,7 +24,8 @@ margin-top: 50px;
 
 .tabela-cabecalho-epi{
     text-align: center;
-    background-color: rgb(93, 176, 245);
+    background-color: #079FD8;
+    color:  #F3F3F3;
     
 }
 
@@ -39,7 +40,7 @@ padding: 10px;
 }
 
 .tabela-epi tr:nth-child(even) {
-background-color: #bedff1; /* Alternância de cores nas linhas */
+background-color: #5EC5F1; /* Alternância de cores nas linhas */
 }
 
 .tabela-corpo-epi a{

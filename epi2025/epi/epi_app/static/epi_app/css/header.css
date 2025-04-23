@@ -12,7 +12,7 @@
     /* position: relative; última alteração */
     width: 100%;
     min-height: 80px;
-    background-color: #8eb9e4;
+    background-color: #079FD8;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,7 +28,7 @@
 }
 .header-texto a {
     text-decoration: none;
-    color: #2b2828;
+    color: #F3F3F3;
 }
 
 .header-usuario {
@@ -41,4 +41,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
+}
+.header-usuario span {
+    color: #F3F3F3;
 }

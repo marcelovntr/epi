@@ -31,7 +31,7 @@
     max-height: 800px;
     margin: 60px auto 50px auto;
     padding: 20px;
-    background-color: #8eb9e4;
+    background-color: #5EC5F1;
     border-radius: 16px;
     font-family: monospace;
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
@@ -43,7 +43,7 @@
 .container-controle h1{
     text-align: center;
     margin-bottom: 20px;
-    color: rgb(229, 241, 237);
+    color: #3F5057;
 }
 
 .container-controle form{
@@ -55,7 +55,7 @@
 
 .container-controle label{
     font-size: 0.8em;
-    color: rgb(240, 245, 243);
+    color: #3F5057;
     padding: 0px 16px;
     align-self: flex-start;
     margin-left: 32px;
@@ -95,7 +95,7 @@
 }
 .container-data-individual label{
     font-size: 0.8em;
-    color: rgb(240, 245, 243);
+    color: #3F5057;
     padding: 0px 16px;
     align-self: flex-start;
     margin-left: -16px;
@@ -144,7 +144,7 @@
 }
 .campos-condicionais label{
     font-size: 0.8em;
-    color: rgb(240, 245, 243);
+    color: #3F5057;
     padding: 0px 16px;
     align-self: flex-start;
     margin-left: 32px;
@@ -162,7 +162,7 @@
 
 .container-controle button{
     background-color: rgb(240, 244, 242);
-    color: rgb(24, 26, 25);
+    color: #3F5057;
     padding: 10px;
     border: none;
     border-radius: 8px;

@@ -8,7 +8,7 @@
     max-height: 400px;
     margin: 150px auto;
     padding: 20px;
-    background-color: #8eb9e4;
+    background-color: #5EC5F1;
     border-radius: 16px;
     box-shadow: 0 0 10px rgba(77, 3, 83, 0.1);
     font-family: monospace;
@@ -17,7 +17,7 @@
 .container-edicao h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: rgb(229, 241, 237);
+    color: #3F5057;
 }
 
 .container-edicao form {
@@ -47,14 +47,14 @@
 
 .container-edicao button {
     background-color: rgb(240, 244, 242);
-    color: rgb(24, 26, 25);
+    color: #36474F;
     padding: 10px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    transition: background 0.3s;
+    transition: all 0.3s;
     width: 50%;
     align-self: center;
     margin-top: 8px;

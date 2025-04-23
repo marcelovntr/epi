@@ -30,7 +30,7 @@
     max-height: 400px;
     margin: 60px auto;
     padding: 20px;
-    background-color: #8eb9e4;
+    background-color: #5EC5F1;
     border-radius: 16px;
     box-shadow: 0 0 10px 8px rgba(25, 25, 26, 0.1);
     font-family: monospace;
@@ -39,7 +39,7 @@
 .container-cadastro h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: rgb(229, 241, 237);
+    color: #3F5057;
 }
 
 .container-cadastro form {
@@ -51,7 +51,7 @@
 
 .container-cadastro label {
     font-size: 0.8em;
-    color: rgb(240, 245, 243);
+    color:#3F5057;
     padding: 0px 64px;
     align-self: flex-start;
 }
@@ -68,7 +68,7 @@
 
 .container-cadastro button {
     background-color: rgb(240, 244, 242);
-    color: rgb(24, 26, 25);
+    color: #3F5057;
     padding: 10px;
     border: none;
     border-radius: 8px;

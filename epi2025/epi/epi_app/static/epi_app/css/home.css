@@ -25,7 +25,7 @@
     margin-left: 250px;
 }
 .secao-inicial-texto span{
-    color: rgb(47, 113, 236);
+    color: #5EC5F1;
     font-weight: bold;
     font-size: 1.1em;
 }
@@ -35,25 +35,13 @@
     justify-content: center;
 }
 
-/* .container-home{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin: 100px auto;
-     background-color: rgb(215, 236, 183);
-}
-.container-home h1{
-    color: rgb(55, 221, 138);
-    margin: auto;
-} */
 
 .secao-equipamentos{
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin: 100px auto;
+    margin: 50px auto;
     text-align: center;
     /* background-color: rgb(215, 236, 183); */
 }
@@ -73,10 +61,15 @@
     align-items: center;
     gap: 8px;
     border-radius: 8px;
-    background-color: rgb(83, 141, 218);
+    background-color: #5EC5F1;
     padding: 8px;
     width: 200px;  
-    height: 200px;  
+    height: 200px;
+    transition: all 0.2s ease-in;  
+}
+.item-equipamentos:hover{
+    transform: scale(1.1);
+    box-shadow:  0 0 8px 2px #36474F;;
 }
 .item-equipamentos img{
     width: 100px;
@@ -84,83 +77,9 @@
     margin-top: 5px;
 }
 
-/* .container-login{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
-    width: 400px;
-    height: 280px;
-    border-radius: 8px;
-    background-color: rgb(83, 141, 218);
+.item-equipamentos span{
+  color: #36474F;
 }
-.container-login form{
-    width: 100%;
-    height: 75%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    
-}
-
-.container-login label{
-    font-size: 0.7em;
-    color: rgb(240, 245, 243);
-    padding: 0px 48px;
-    align-self: flex-start;
-}
-
-.container-login input {
-    width: 75%;
-    padding: 10px;
-    border: none;
-    border-bottom: 1px solid #aaa;
-    font-size: 12px;
-    background: transparent;
-    margin-bottom: 6px;
-    outline: none;
-    color: rgb(58, 230, 130);
-    transition: border-color 0.3s;
-}
-
-.container-login input:focus {
-    border-bottom: 2px solid rgb(55, 221, 138);
-  }
-span {
-    color: aquamarine;
-    margin-top: 8px;
-}
-
-.container-login a{
-text-decoration: none;
-color: rgb(55, 221, 138);
-transition: font-weight 0.3s
-}
-.container-login a:hover{
-    font-weight: bold;
-}
-
-.container-login button{
-    width: 50%;
-    padding: 10px;
-    border: none;
-    border: 1px solid rgb(55, 221, 138);
-    border-radius: 8px;
-    background: transparent;
-    color: rgb(231, 241, 237);
-    font-size: 0.8em;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.container-login button:hover{
-    background-color: rgb(55, 221, 138);
-    
-} */
-
 
 .secao-final{
     display: flex;
@@ -179,7 +98,7 @@ transition: font-weight 0.3s
     font-size: 1em;
     width: 50%;
     height: 100%;
-    background: linear-gradient(to right, white, #176baf);
+    background: linear-gradient(to right, white, #079FD8);
 }
 .secao-final-texto p, h3{
     width: 80%;
