@@ -221,3 +221,6 @@ def listar_controle(request):
 ###########LOGIN E USUÁRIOS################
 def login(request):
     return render(request, 'epi_app/pages/login.html')
+
+def cadastrar_usuario(request):    
+    return render(request, 'epi_app/pages/cadastro_usuario.html')

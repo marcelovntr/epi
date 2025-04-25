@@ -1,0 +1,55 @@
+{% extends "epi_app/global/index.html" %}
+{% load static %}
+{% block title %}Cadastro Usuarios{% endblock title %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'epi_app/css/cadastro_usuario.css' %}" />
+{% endblock css %} 
+
+{% block content %}
+
+{% if messages %}
+    <ul class="lista-sucesso-erro">
+        {% for message in messages %}
+            
+                <li style="color: {% if message.tags == 'error' %}red{% else %}green{% endif %};">
+                    {{ message }}
+                </li>
+            
+        {% endfor %}
+    </ul>
+{% endif %}
+
+    <section class="secao-cadastro-usuario">
+        <p>Cadastro de Usuario</p>
+        <img src="{% static 'epi_app\images\colaboradoricone.png' %}" alt="icone usuario">
+    </section>
+
+    <main class="container-cadastro-usuario">
+        <h1>Novo Usuario</h1>
+
+        <form action="{% url 'cadastro_usuario' %}" method="post">
+            {% csrf_token %}
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" placeholder="Nome do usuario" required>
+            <label for="email">Email</label>
+            <input type="text" name="email" placeholder="Email" required>
+            <label for="senha">Senha</label>
+            <input type="text" name="senha" placeholder="Senha" required>
+            <button type="submit">Cadastrar</button>
+        </form>
+
+    {% comment %} {% if erro %}
+        <p style="color: red;" margin-top="0">{{ erro }}</p>
+    {% endif %}
+    
+    {% if usuario %}
+        <p style="color: green;">Usuario {{ Usuario.nome }} cadastrado com sucesso!</p>
+    {% endif %} {% endcomment %}
+  
+    </main>
+    
+{% endblock content %}
+
+{% block script %}
+    <script src="{% static 'epi_app/js/sumirMensagens.js' %}"></script>
+{% endblock script %}
