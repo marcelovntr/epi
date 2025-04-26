@@ -1,0 +1,95 @@
+{% extends "epi_app/global/index.html" %}
+{% load static %}
+{% block title %}Editar Controle{% endblock title %}
+ {% block css %}
+    <link rel="stylesheet" href="{% static 'epi_app/css/controle_editar.css' %}" />
+{% endblock css %}
+
+{% block content %}
+
+{% if messages %}
+    <ul class="lista-sucesso-erro">
+        {% for message in messages %}
+            
+                <li style="color: {% if message.tags == 'error' %}red{% else %}green {% endif %};">
+                    {{ message }}
+                </li>
+            
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<main class="container-edicao-controle">
+    <h1>editar controle</h1>
+
+    <form action="{% url 'editar_controle' controle.id %}" method="post">
+        {% csrf_token %}
+        <label for="epi">EPI</label>
+        <select name="epi" disabled>
+            <option value="" disabled >Selecione o EPI</option>
+            {% for epi in equipamentos %}
+                <option value="{{ epi.id }}" selected>{{ epi.nome }}</option>
+            {% endfor %}
+        </select>
+        <!-- <label for="equipamento">Equipamento</label>
+        <input type="text" name="equipamento" placeholder="Equipamento" required> -->
+        <label for="colaborador">Colaborador</label>
+        <select name="colaborador" disabled>
+            <option value="" disabled >Selecione o colaborador</option>
+            {% for colaborador in colaboradores %}
+                <option value="{{ colaborador.id }}" selected>{{ colaborador.nome }}</option>                
+            {% endfor %}
+        </select>
+        <!-- <label for="colaborador">Colaborador</label>
+        <input type="text" name="colaborador" placeholder="Colaborador" required> -->
+             
+        <div class="container-datas"> 
+            <div class="container-data-individual">
+                <label for="data-emprestimo">Data do empréstimo</label>
+                <input type="date" name="data-emprestimo" value="{{ controle.data_emprestimo|date:'Y-m-d' }}" disabled>
+            </div>
+            <div class="container-data-individual">
+                <label for="data-prevista">Data prevista da devolução</label>
+                <input type="date" name="data-prevista" value="{{ controle.data_prevista|date:'Y-m-d' }}" disabled>
+            </div>
+        </div>
+        <label for="status">Status</label>
+        <select name="status" id="status-selecionado">
+            <option value="" disabled>Selecione o status</option>
+            <option value="emprestado" {% if controle.status == 'emprestado' %}selected{% endif %}>Emprestado</option>
+            <option value="uso" {% if controle.status == 'uso' %}selected{% endif %}>Em uso</option>
+            <option value="devolvido" {% if controle.status == 'devolvido' %}selected{% endif %}>Devolvido</option>
+            <option value="perdido" {% if controle.status == 'perdido' %}selected{% endif %}>Perdido</option>
+            <option value="danificado" {% if controle.status == 'danificado' %}selected{% endif %}>Danificado</option>
+            <option value="fornecido" {% if controle.status == 'fornecido' %}selected{% endif %}>Fornecido</option>
+        </select>
+        <label for="condicoes">Condiçõe do equipamento no empréstimo</label>
+        <input type="text" name="condicoes" placeholder="Condição do equipamento" value="{{controle.condicoes}}" required>
+        {% comment %} só aparecem condicionalmente com DJANGO NÃO DÁ, PQ PRECISARIA VIR DO BACKEND {% endcomment %}
+        <div class="campos-condicionais" id="campos-condicionais" hidden>
+            <label for="data-devolucao">Data da devolução</label>
+            <input type="date" name="data-devolucao" placeholder="Data entregue" value="{{ controle.data_devolucao}}" required>
+            <label for="observacoes">Observações na devolução/perda</label>
+            <input type="text" name="observacoes" placeholder="Observações" value="{{controle.observacoes}}" required>
+        </div>
+   
+
+        <button type="submit">Salvar</button>
+    </form>
+
+</main>
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
+{% block script %}
+    <script src="{% static 'epi_app/js/sumirMensagens.js' %}"></script>
+    <script src="{% static 'epi_app/js/mostrarOpcoes.js' %}"></script>
+{% endblock script %}

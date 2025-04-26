@@ -230,6 +230,33 @@ def listar_controle(request):
         lista_controle = Controle.objects.all()
     return render(request, 'epi_app/pages/listagem_controle.html', context={'controladoria': lista_controle, 'pesquisa': pesquisa})
 
+def editar_controle(request, id):
+    
+    if request.method == 'GET':
+        controle_por_id = Controle.objects.get(id=id)
+        colaboradores = Colaboradores.objects.all()
+        equipamentos = Equipamentos.objects.all()
+        return render(request, 'epi_app/pages/controle_editar.html', context={'controle': controle_por_id, 'colaboradores': colaboradores, 'equipamentos': equipamentos})
+    
+    controle_por_id = Controle.objects.get(id=id)
+    # equipamento = request.POST.get('epi', '').strip()
+    # colaborador = request.POST.get('colaborador', '').strip()
+    # data_emprestimo = request.POST.get('data-emprestimo', '').strip()
+    # data_prevista = request.POST.get('data-prevista', '').strip()
+    status = request.POST.get('status', '').strip()
+    condicoes = request.POST.get('condicoes', '').strip()
+    # data_devolucao = request.POST.get('data-devolucao', '').strip()
+    observacoes = request.POST.get('observacoes', '').strip()
+    Controle.objects.filter(id=id).update(status=status, condicoes=condicoes, observacoes=observacoes)
+    messages.success(request, f'Controle: {controle_por_id.equipamento.nome} do colaborador: {controle_por_id.colaborador.nome} atualizado com sucesso!')
+    return redirect('listar_controle')
+
+def deletar_controle(request, id):
+    controle = Controle.objects.get(id=id)
+    controle.delete()
+    messages.success(request, f'Controle: {controle.equipamento.nome} do colaborador: {controle.colaborador.nome} deletado com sucesso!')
+    return redirect('listar_controle')
+
 ###########LOGIN E USUÁRIOS################
 def login(request):
 # salvar na session manualmente???
