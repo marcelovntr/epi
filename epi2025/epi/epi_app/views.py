@@ -3,7 +3,7 @@ from django.contrib import messages
 from .models import Colaboradores, Equipamentos, Controle, Usuarios
 from django.views.decorators.http import require_POST
 from datetime import datetime
-from django.db.models import Q
+from django.db.models import Q, ProtectedError
 
 # Create your views here.
 def home(request):
@@ -59,7 +59,17 @@ def editar_colaborador(request, id):
 def deletar_colaborador(request, id):
     colaborador_encontrado = get_object_or_404(Colaboradores, id=id)
     # colaborador_encontrado = Colaboradores.objects.get(id=id)
-    colaborador_encontrado.delete()
+    try:
+        colaborador_encontrado.delete()
+        messages.success(request, f'Colaborador "{colaborador_encontrado.nome}" deletado com sucesso!')
+    except ProtectedError:
+        messages.error(
+            request,
+            f'Não foi possível deletar o colaborador "{colaborador_encontrado.nome}" porque ele está vinculado a registros de controle.'
+        )
+    except Exception as e:
+        messages.error(request, f'Erro ao deletar colaborador "{colaborador_encontrado.nome}": {str(e)}')
+    # colaborador_encontrado.delete()
     return redirect('listagem_editar') 
 
 def listagem_editar(request):
