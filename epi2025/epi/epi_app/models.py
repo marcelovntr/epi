@@ -1,7 +1,6 @@
 from django.db import models
-# cpf = models.CharField(max_length=11)
-# email = models.EmailField()
-# telefone = models.CharField(max_length=20)
+from django.core.validators import MinLengthValidator
+from django.contrib.auth.hashers import make_password
 # Create your models here.
 class Colaboradores(models.Model):
     nome = models.CharField(max_length=100)
@@ -51,3 +50,22 @@ class Controle(models.Model):
     observacoes = models.TextField()
     criado_em = models.DateTimeField(auto_now_add=True)
     alterado_em = models.DateTimeField(auto_now=True)
+
+class Usuarios(models.Model):
+    nome = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    # cpf = models.CharField(max_length=11, unique=True)
+    senha = models.CharField(
+        #maior???
+        max_length=128, 
+        validators=[MinLengthValidator(8)])
+    criado_em = models.DateTimeField(auto_now_add=True)
+    alterado_em = models.DateTimeField(auto_now=True)
+
+    # def save(self, *args, **kwargs):
+    #     # Só criptografa se ainda não estiver criptografada
+    #     if not self.senha.startswith('pbkdf2_'):
+    #         self.senha = make_password(self.senha)
+    #     super().save(*args, **kwargs)
+    def __str__(self):
+        return f"Usuario({self.nome}, {self.email})"

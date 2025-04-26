@@ -1,6 +1,6 @@
 {% extends "epi_app/global/index.html" %}
 {% load static %}
-{% block title %}Cadastro Usuarios{% endblock title %}
+{% block title %}Cadastro Usuários{% endblock title %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'epi_app/css/cadastro_usuario.css' %}" />
 {% endblock css %} 
@@ -20,31 +20,26 @@
 {% endif %}
 
     <section class="secao-cadastro-usuario">
-        <p>Cadastro de Usuario</p>
-        <img src="{% static 'epi_app\images\colaboradoricone.png' %}" alt="icone usuario">
+        <p>Cadastro de Usuários</p>
+        <img src="{% static 'epi_app\images\usuarioicone.png' %}" alt="icone usuario">
     </section>
 
     <main class="container-cadastro-usuario">
-        <h1>Novo Usuario</h1>
+        <h1>Novo Usuário</h1>
 
         <form action="{% url 'cadastro_usuario' %}" method="post">
             {% csrf_token %}
             <label for="nome">Nome</label>
-            <input type="text" name="nome" placeholder="Nome do usuario" required>
+            <input type="text" name="nome" placeholder="Nome do usuário" required>
+            <label for="cpf">CPF</label>
+            <input type="text" name="cpf" placeholder="Apenas números" required>
             <label for="email">Email</label>
             <input type="text" name="email" placeholder="Email" required>
             <label for="senha">Senha</label>
-            <input type="text" name="senha" placeholder="Senha" required>
+            <input type="text" name="senha" placeholder="Mínimo de 8 dígitos" required>
             <button type="submit">Cadastrar</button>
         </form>
 
-    {% comment %} {% if erro %}
-        <p style="color: red;" margin-top="0">{{ erro }}</p>
-    {% endif %}
-    
-    {% if usuario %}
-        <p style="color: green;">Usuario {{ Usuario.nome }} cadastrado com sucesso!</p>
-    {% endif %} {% endcomment %}
   
     </main>
     
