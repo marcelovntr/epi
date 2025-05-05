@@ -12,7 +12,8 @@
         {% for message in messages %}
             <li style="color: {% if message.tags == 'error' %}red{% else %}green {% endif %};">
                 {{ message }}
-            </li>
+            </li> 
+
         {% endfor %}
     </ul>
 {% endif %}
@@ -77,16 +78,16 @@
         {% endif %}
 
     {% else %}
-            <div class="msg-sem-dados">
-                <img src="https://cdn-icons-png.flaticon.com/512/13141/13141610.png" 
-                alt="sem dados" style="width: 300px; text-align: center;">
-                <p>Ainda não há dados disponíveis!</p>
-                <div class="linha">
-                
-                    <p>Inicie um registro por aqui:</p>
-                    <a href="{% url 'cadastro_colaborador' %} ">Registrar Colaborador</a>
-                </div>   
-            </div>
+        <div class="msg-sem-dados">
+            <img src="https://cdn-icons-png.flaticon.com/512/13141/13141610.png" 
+            alt="sem dados" style="width: 300px; text-align: center;">
+            <p>Ainda não há dados disponíveis!</p>
+            <div class="linha">
+            
+                <p>Inicie um registro por aqui:</p>
+                <a href="{% url 'cadastro_colaborador' %} ">Registrar Colaborador</a>
+            </div>   
+        </div>
     {% endif %}
 </main>
   

@@ -17,6 +17,8 @@ urlpatterns = [
 
     path('controle/', views.cadastrar_controle, name='cadastrar_controle'),
     path('listagem_controle/', views.listar_controle, name='listar_controle'),
+    path('controle_editar/<int:id>', views.editar_controle, name='editar_controle'),
+    path('controle_deletar/<int:id>', views.deletar_controle, name='deletar_controle'),
 
     path('login/', views.login, name='login'),
     path('cadastro_usuario/', views.cadastrar_usuario, name='cadastro_usuario'),

@@ -45,6 +45,7 @@
                         <th>Data Empréstimo</th>
                         <th>Data Devolução</th>
                         <th>Status</th>
+                        <th>Ação</th> 
                     </tr>
                 </thead>
             <tbody class="corpo-lista-controle">
@@ -58,6 +59,17 @@
                         data_formatada = data_emprestimo.strftime("%d/%m/%Y") {% endcomment %}
                         <td>{{ meliante.data_devolucao|date:"d/m/Y" }}</td>
                         <td>{{ meliante.status }}</td>
+                        <td>
+                            <div class="botoes">
+                                {% comment %} <a href="{% url 'deletar_colaborador' worker.id %}">Excluir</a>  {% endcomment %}
+                            <form id="form-excluir-{{ meliante.id }}" action="{% url 'deletar_controle' meliante.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="button" onclick="confirmarExclusao('{{ meliante.id }}')">Excluir</button>
+                            </form>
+                                
+                            <a href="{% url 'editar_controle' meliante.id %}">Editar</a></td>
+                            </div>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
@@ -78,5 +90,9 @@
 </main>
 {% endblock content %}
 {% block script %}
-    <script src="{% static 'epi_app/js/sumirMensagens.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{% static 'epi_app/js/exclusao.js' %}"></script>
+<script src="{% static 'epi_app/js/sumirMensagens.js' %}"></script>
+
+
 {% endblock script %}

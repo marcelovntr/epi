@@ -3,7 +3,7 @@ from django.contrib import messages
 from .models import Colaboradores, Equipamentos, Controle, Usuarios
 from django.views.decorators.http import require_POST
 from datetime import datetime
-from django.db.models import Q
+from django.db.models import Q, ProtectedError
 
 # Create your views here.
 def home(request):
@@ -59,7 +59,17 @@ def editar_colaborador(request, id):
 def deletar_colaborador(request, id):
     colaborador_encontrado = get_object_or_404(Colaboradores, id=id)
     # colaborador_encontrado = Colaboradores.objects.get(id=id)
-    colaborador_encontrado.delete()
+    try:
+        colaborador_encontrado.delete()
+        messages.success(request, f'Colaborador "{colaborador_encontrado.nome}" deletado com sucesso!')
+    except ProtectedError:
+        messages.error(
+            request,
+            f'Não foi possível deletar o colaborador "{colaborador_encontrado.nome}" porque ele está vinculado a registros de controle.'
+        )
+    except Exception as e:
+        messages.error(request, f'Erro ao deletar colaborador "{colaborador_encontrado.nome}": {str(e)}')
+    # colaborador_encontrado.delete()
     return redirect('listagem_editar') 
 
 def listagem_editar(request):
@@ -222,6 +232,33 @@ def listar_controle(request):
     else:
         lista_controle = Controle.objects.all()
     return render(request, 'epi_app/pages/listagem_controle.html', context={'controladoria': lista_controle, 'pesquisa': pesquisa})
+
+def editar_controle(request, id):
+    
+    if request.method == 'GET':
+        controle_por_id = Controle.objects.get(id=id)
+        colaboradores = Colaboradores.objects.all()
+        equipamentos = Equipamentos.objects.all()
+        return render(request, 'epi_app/pages/controle_editar.html', context={'controle': controle_por_id, 'colaboradores': colaboradores, 'equipamentos': equipamentos})
+    
+    controle_por_id = Controle.objects.get(id=id)
+    # equipamento = request.POST.get('epi', '').strip()
+    # colaborador = request.POST.get('colaborador', '').strip()
+    # data_emprestimo = request.POST.get('data-emprestimo', '').strip()
+    # data_prevista = request.POST.get('data-prevista', '').strip()
+    status = request.POST.get('status', '').strip()
+    condicoes = request.POST.get('condicoes', '').strip()
+    # data_devolucao = request.POST.get('data-devolucao', '').strip()
+    observacoes = request.POST.get('observacoes', '').strip()
+    Controle.objects.filter(id=id).update(status=status, condicoes=condicoes, observacoes=observacoes)
+    messages.success(request, f'Controle: {controle_por_id.equipamento.nome} do colaborador: {controle_por_id.colaborador.nome} atualizado com sucesso!')
+    return redirect('listar_controle')
+
+def deletar_controle(request, id):
+    controle = Controle.objects.get(id=id)
+    controle.delete()
+    messages.success(request, f'Controle: {controle.equipamento.nome} do colaborador: {controle.colaborador.nome} deletado com sucesso!')
+    return redirect('listar_controle')
 
 ###########LOGIN E USUÁRIOS################
 def login(request):

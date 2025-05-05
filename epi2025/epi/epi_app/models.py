@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MinLengthValidator
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 # Create your models here.
 class Colaboradores(models.Model):
     nome = models.CharField(max_length=100)
@@ -51,6 +52,8 @@ class Controle(models.Model):
     criado_em = models.DateTimeField(auto_now_add=True)
     alterado_em = models.DateTimeField(auto_now=True)
 
+
+#class Usuarios(BaseUserManager, AbstractBaseUser):
 class Usuarios(models.Model):
     nome = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
