@@ -20,7 +20,7 @@
 <main class='container-editar'>
     <h1>Colaboradores Ativos</h1>
 
-    {% if colaboradores %}
+    {% if colaboradores or encontrados is not None %}   
         <div class="container-busca">
             <h4>Pesquisa por Usuário</h4>
             <form action="{% url 'listagem_editar' %}" method="get">
@@ -34,48 +34,59 @@
                 </div>   
             {% endif %}
         </div>
-            
-            
-        <table class="tabela-colaboradores">
-            <thead class="tabela-cabecalho">
-                <tr>
-                    <th>Nome</th>
-                    <th>Setor</th>
-                    <th>Cargo</th>
-                    <th>Ação</th>
-                </tr>
-            </thead>
-            <tbody class="tabela-corpo">
-                {% for worker in colaboradores %}
+        
+        {% if encontrados is not None and not encontrados %}
+            <div class="msg-sem-dados">
+                <img src="https://cdn-icons-png.flaticon.com/512/17426/17426090.png" alt="sem resultado" width="400px">
+                <p>Nenhum colaborador encontrado para sua pesquisa.</p>
+                
+            </div>
+       
+        {% else %}
+          
+            <table class="tabela-colaboradores">
+                <thead class="tabela-cabecalho">
                     <tr>
-                        <td>{{ worker.nome }}</td>
-                        <td>{{ worker.setor }}</td>
-                        <td>{{ worker.cargo }}</td>
-                        <td>
-                            <div class="botoes">
-                                {% comment %} <a href="{% url 'deletar_colaborador' worker.id %}">Excluir</a>  {% endcomment %}
-                            <form id="form-excluir-{{ worker.id }}" action="{% url 'deletar_colaborador' worker.id %}" method="post">
-                                {% csrf_token %}
-                                <button type="button" onclick="confirmarExclusao('{{ worker.id }}')">Excluir</button>
-                            </form>
-                                
-                            <a href="{% url 'editar_colaborador' worker.id %}">Editar</a></td>
-                            </div>
-                        </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                        <th>Nome</th>
+                        <th>Setor</th>
+                        <th>Cargo</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody class="tabela-corpo">
+                    {% for worker in encontrados|default:colaboradores %}
+                        <tr>
+                            <td>{{ worker.nome }}</td>
+                            <td>{{ worker.setor }}</td>
+                            <td>{{ worker.cargo }}</td>
+                            <td>
+                                <div class="botoes">
+                                    {% comment %} <a href="{% url 'deletar_colaborador' worker.id %}">Excluir</a>  {% endcomment %}
+                                <form id="form-excluir-{{ worker.id }}" action="{% url 'deletar_colaborador' worker.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="button" onclick="confirmarExclusao('{{ worker.id }}')">Excluir</button>
+                                </form>
+                                    
+                                <a href="{% url 'editar_colaborador' worker.id %}">Editar</a></td>
+                                </div>
+                            </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+          
+        {% endif %}
+
     {% else %}
-        <div class="msg-sem-dados">
-            <img src="https://cdn-icons-png.flaticon.com/512/13141/13141610.png" 
-            alt="sem dados" style="width: 300px; text-align: center;">
-            <p>Ainda não há dados disponíveis!</p>
-            <div class="linha">
-            
-                <p>Inicie um registro por aqui:</p>
-                <a href="{% url 'cadastrar_colaborador' %} ">Registrar Colaborador</a>
-            </div>   
-        </div>
+            <div class="msg-sem-dados">
+                <img src="https://cdn-icons-png.flaticon.com/512/13141/13141610.png" 
+                alt="sem dados" style="width: 300px; text-align: center;">
+                <p>Ainda não há dados disponíveis!</p>
+                <div class="linha">
+                
+                    <p>Inicie um registro por aqui:</p>
+                    <a href="{% url 'cadastro_colaborador' %} ">Registrar Colaborador</a>
+                </div>   
+            </div>
     {% endif %}
 </main>
   

@@ -64,20 +64,23 @@ def deletar_colaborador(request, id):
 
 def listagem_editar(request):
     pesquisa = request.GET.get('pesquisa')
+    lista_colaboradores = None #ou []
+    lista_encontrados = None #ou []
     if pesquisa:
-        lista_colaboradores = Colaboradores.objects.filter(
+        lista_encontrados = Colaboradores.objects.filter(
             Q(nome__icontains=pesquisa) |
             Q(setor__icontains=pesquisa) |
             Q(cargo__icontains=pesquisa)
             )
-        if len(lista_colaboradores) == 0:
+        if not lista_encontrados.exists():
+            #ou: if len(lista_encontrados) == 0:
             #ou: lista_colaboradores.count() == 0:
             messages.error(request, 'Nenhum colaborador encontrado com esse nome.')
-            lista_colaboradores = Colaboradores.objects.all()
+            # lista_colaboradores = Colaboradores.objects.all() 
     else:
         lista_colaboradores = Colaboradores.objects.all()
     return render(request, 'epi_app/pages/listagem_editar.html', 
-                  context={'colaboradores': lista_colaboradores, 'pesquisa': pesquisa})
+                  context={'colaboradores': lista_colaboradores, 'encontrados': lista_encontrados, 'pesquisa': pesquisa})
 
 
 ###############EQUIPAMENTOS###############
