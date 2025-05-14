@@ -1,0 +1,228 @@
+*{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+.container-editar{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 60%;
+        align-items: center;
+        margin: 80px auto;
+        }
+
+.tabela-colaboradores {
+    background-color: #F3F3F3;
+    border-radius: 4px;   
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    margin-top: 50px;
+    }  
+
+.tabela-cabecalho{
+        text-align: center;
+        background-color: #079FD8;
+        color: #F3F3F3;
+        
+}
+
+.tabela-corpo{
+        text-align: center;
+        padding: 8px;
+}
+
+.tabela-colaboradores th, .tabela-colaboradores td {
+    text-align: center;
+    padding: 10px;
+}
+
+.tabela-colaboradores tr:nth-child(even) {
+    background-color: #5EC5F1; /* Alternância de cores nas linhas */
+}
+
+.tabela-corpo a{
+text-decoration: none;
+padding: 4px 8px;
+border-radius: 4px;
+font-size: 0.8em;
+background: transparent;
+}
+.tabela-corpo a:first-child{
+    color:#f33b54;
+    font-weight: bold;
+    border : 1px solid #f33b54;
+}
+.tabela-corpo a:last-child{
+    color:#1da746;
+    font-weight: bold;
+    border : 1px solid #1da746;
+    transition: all 0.2s;
+}
+.tabela-corpo a:hover{
+    background-color: #1da746;
+    color: azure;
+}
+.tabela-corpo button{
+    color:#f33b54;
+    font-weight: bold;
+    border : 1px solid #f33b54;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    background: transparent;
+    transition: all 0.2s;
+}
+.tabela-corpo button:hover{
+    background-color: #f33b54;
+    color: azure;
+}
+.lista-colaborador {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 32px;
+        list-style: none;
+        
+    }
+.lista-colaborador li{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 10px;
+        list-style: none;
+        background-color: rgb(127, 60, 182);
+        min-width: 600px;
+        padding: 8px 16px;
+        border-radius: 8px;
+    }
+    
+.lista-colaborador a {
+        text-decoration: none;
+    }
+    
+.botoes{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+.lista-sucesso-erro{
+    list-style: none;
+    position: fixed;
+    top: 100px;
+    right: 550px;
+    min-width: 500px;
+    min-height: 50px;
+}
+.lista-sucesso-erro li{
+    margin: 10px auto;
+    padding: 10px;
+    background: rgb(240, 244, 242);
+    border-style: groove;
+    border: solid 1px #12522f;
+    border-radius: 8px;
+    font-weight: bold;
+    min-width: 90%;
+    min-height: 90%;
+    display: block;
+    text-align: center;
+}
+
+.container-busca{
+    width: 50%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 25px auto;
+    gap: 8px;
+}
+.container-busca form{
+    width: 90%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin-top: 16px;
+}
+.container-busca input{
+    height: 40px;
+    width: 250px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: 1px solid #4d1252;
+}
+.container-busca button{
+    height: 40px;
+    width: 80px;
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid #355bc4;
+    background-color: #ffffff;
+    color: rgb(96, 166, 245);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+.container-busca button:hover{
+    background-color: rgb(93, 176, 245);
+    color: azure;
+    border: none;
+}
+.texto-icone{
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.texto-icone p {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+}
+
+.msg-sem-dados{
+    width: 70%;
+    height: 100%;
+    margin: 40px;
+    text-align: center;
+    font-size: 1.2em;
+   
+}
+.linha{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+    
+}
+.linha p{
+    margin: 0;
+    padding: 0;
+    /* line-height: 1; */
+    align-items: center;
+}
+.linha a{
+    padding: 8px;
+    text-decoration: none;
+    background-color:#74acf5;
+    border: 1px solid #f5f6f8;
+    border-radius: 8px;
+    color: #f6f8fa;
+    transition: all 0.15s ease-in-out;
+}
+.msg-sem-dados a:hover{
+    background-color: #ffffff;
+    color: #5a93dd;
+    border: 1px solid #6892e7;
+}

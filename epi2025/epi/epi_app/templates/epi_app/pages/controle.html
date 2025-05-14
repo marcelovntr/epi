@@ -1,0 +1,91 @@
+{% extends "epi_app/global/index.html" %} 
+{% load static %} 
+{% block title%}Controle de EPIs{% endblock title %} 
+{% block css %}
+<link rel="stylesheet" href="{% static 'epi_app/css/controle.css' %}" />
+{% endblock css %}
+{% block content %}
+
+{% if messages %}
+<ul class="lista-sucesso-erro">
+    {% for message in messages %}
+        
+            <li style="color: {% if message.tags == 'error' %}red{% else %}green{% endif %};">
+                {{ message }}
+            </li>
+        
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<section class="secao-cadastro-cabecalho">
+    <p>Controle de EPIs </p>
+    <img src="{% static 'epi_app\images\iconeregistro.png' %}" alt="icone colaborador">
+</section>
+
+<main class="container-controle">
+  <h1>Novo Registro</h1>
+ <form action="{% url 'cadastrar_controle' %}" method="post">
+        {% csrf_token %}
+        <label for="epi">EPI</label>
+        <select name="epi">
+            <option value="" disabled selected>Selecione o EPI</option>
+            {% for epi in equipamentos %}
+                <option value="{{ epi.id }}">{{ epi.nome }}</option>
+            {% endfor %}
+        </select>
+        <!-- <label for="equipamento">Equipamento</label>
+        <input type="text" name="equipamento" placeholder="Equipamento" required> -->
+        <label for="colaborador">Colaborador</label>
+        <select name="colaborador">
+            <option value="" disabled selected>Selecione o colaborador</option>
+            {% for colaborador in colaboradores %}
+                <option value="{{ colaborador.id }}">{{ colaborador.nome }}</option>                
+            {% endfor %}
+        </select>
+        <!-- <label for="colaborador">Colaborador</label>
+        <input type="text" name="colaborador" placeholder="Colaborador" required> -->
+             
+        <div class="container-datas"> 
+            <div class="container-data-individual">
+                <label for="data-emprestimo">Data do empréstimo</label>
+                <input type="date" name="data-emprestimo" placeholder="Data" required>
+            </div>
+            <div class="container-data-individual">
+                <label for="data-prevista">Data prevista da devolução</label>
+                <input type="date" name="data-prevista" placeholder="Data para entrega" required>
+            </div>
+        </div>
+        <label for="status">Status</label>
+        <select name="status" id="status-selecionado">
+            <option value="" disabled selected>Selecione o status</option>
+            <option value="emprestado">Emprestado</option>
+            <option value="uso">Em uso</option>
+            <option value="devolvido">Devolvido</option>
+            <option value="perdido">Perdido</option>
+            <option value="danificado">Danificado</option>
+            <option value="fornecido">Fornecido</option>
+        </select>
+        <label for="condicoes">Condiçõe do equipamento no empréstimo</label>
+        <input type="text" name="condicoes" placeholder="Condição do equipamento" required>
+        {% comment %} só aparecem condicionalmente com DJANGO NÃO DÁ, PQ PRECISARIA VIR DO BACKEND {% endcomment %}
+        <div class="campos-condicionais" id="campos-condicionais" hidden>
+            <label for="data-devolucao">Data da devolução</label>
+            <input type="date" name="data-devolucao" placeholder="Data entregue" required>
+            <label for="observacoes">Observações na devolução/perda</label>
+            <input type="text" name="observacoes" placeholder="Observações" required>
+        </div>
+   
+
+        <button type="submit">Salvar</button>
+    </form>
+</main>
+
+
+{% endblock content %}
+{% block script %}
+    <script src="{% static 'epi_app/js/sumirMensagens.js' %}"></script>
+    <script src="{% static 'epi_app/js/mostrarOpcoes.js' %}"></script>
+{% endblock script %}  
+

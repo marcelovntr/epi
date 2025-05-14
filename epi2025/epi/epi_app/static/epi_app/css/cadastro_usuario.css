@@ -1,0 +1,120 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.secao-cadastro-usuario{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+    padding: 32px;
+    margin: 30px auto;
+    gap: 32px;
+
+}
+.secao-cadastro-usuario p{
+    min-width: 400px;
+    font-size: 3em;
+}
+.secao-cadastro-usuario img{
+    width: 250px;
+    height: 250px;
+}
+
+
+.container-cadastro-usuario {
+    max-width: 600px;
+    max-height: 450px;
+    margin: 60px auto;
+    padding: 20px;
+    background-color: #5EC5F1;
+    border-radius: 16px;
+    box-shadow: 0 0 10px 8px rgba(25, 25, 26, 0.1);
+    font-family: monospace;
+}
+
+.container-cadastro-usuario h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #3F5057;
+}
+
+.container-cadastro-usuario form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+}
+
+.container-cadastro-usuario label {
+    font-size: 0.8em;
+    color:#3F5057;
+    padding: 0px 64px;
+    align-self: flex-start;
+}
+
+.container-cadastro-usuario input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 12px;
+    background-color: rgb(240, 244, 242);
+    margin-bottom: 8px;
+}
+
+.container-cadastro-usuario button {
+    background-color: rgb(240, 244, 242);
+    color: #3F5057;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.2s;
+    width: 50%;
+    align-self: center;
+    margin-top: 8px;
+}
+
+.container-cadastro-usuario button:hover {
+    background-color: rgb(92, 150, 197);
+    color: rgb(236, 243, 240);
+}
+
+.container-cadastro-usuario ul {
+    margin: 20px auto;
+    padding: 10px;
+    background: rgb(240, 244, 242);
+    border-radius: 8px;
+    color: #4f1252;
+    font-weight: bold;
+    width: 60%;
+    display: block;
+    text-align: center;
+}
+.lista-sucesso-erro{
+    list-style: none;
+    position: fixed;
+    top: 100px;
+    right: 550px;
+    min-width: 500px;
+    min-height: 50px;
+}
+.lista-sucesso-erro li{
+    margin: 10px auto;
+    padding: 10px;
+    background: rgb(240, 244, 242);
+    border-style: groove;
+    border: solid 1px #12522f;
+    border-radius: 8px;
+    font-weight: bold;
+    min-width: 90%;
+    min-height: 90%;
+    display: block;
+    text-align: center;
+}

@@ -1,0 +1,130 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.secao-cadastro-cabecalho{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+    padding: 32px;
+    margin: 30px auto;
+    gap: 32px;
+
+}
+.secao-cadastro-cabecalho p{
+    min-width: 400px;
+    font-size: 3em;
+}
+.secao-cadastro-cabecalho img{
+    width: 250px;
+    height: 250px;
+}
+
+
+
+.container-cadastro-epi {
+    max-width: 600px;
+    max-height: 400px;
+    margin: 60px auto 50px auto;
+    padding: 20px;
+    background-color: #5EC5F1;
+    border-radius: 16px;
+    box-shadow: 0 0 10px 8px rgba(25, 25, 26, 0.1);
+    font-family: monospace;
+}
+
+.container-cadastro-epi h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(229, 241, 237);
+}
+
+.container-cadastro-epi form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+}
+
+.container-cadastro-epi label {
+    font-size: 0.8em;
+    color: #3F5057;
+    padding: 0px 64px;
+    align-self: flex-start;
+}
+
+.container-cadastro-epi input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 12px;
+    background-color: #F3F3F3;
+    margin-bottom: 8px;
+}
+
+.container-cadastro-epi button {
+    background-color: rgb(240, 244, 242);
+    color: #36474F;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.15s;
+    width: 50%;
+    align-self: center;
+    margin-top: 8px;
+    outline: none;
+}
+
+
+.container-cadastro-epi button:hover {
+    background-color: rgb(92, 150, 197);
+    color: rgb(236, 243, 240);
+}
+
+.container-cadastro-epi select {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 12px;
+    background-color: rgb(240, 244, 242);
+    margin-bottom: 8px;
+    outline: none;
+}
+.container-cadastro-epi select:hover {
+    border-color:  #70f1bc;
+}
+.container-cadastro-epi select:focus {
+    border-color:  #70f1bc;
+    background-color: #b7f7dc;
+}
+
+.lista-sucesso-erro{
+    list-style: none;
+    position: fixed;
+    top: 100px;
+    right: 550px;
+    min-width: 500px;
+    min-height: 50px;
+}
+.lista-sucesso-erro li{
+    margin: 10px auto;
+    padding: 10px;
+    background: rgb(240, 244, 242);
+    border-style: groove;
+    border: solid 1px #12522f;
+    border-radius: 8px;
+    font-weight: bold;
+    min-width: 90%;
+    min-height: 90%;
+    display: block;
+    text-align: center;
+}

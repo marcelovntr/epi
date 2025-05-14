@@ -1,0 +1,55 @@
+{% extends "epi_app/global/index.html" %}
+{% load static %}
+{% block title %}Cadastro Colaboradores{% endblock title %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'epi_app/css/cadastro_colaborador.css' %}" />
+{% endblock css %} 
+
+{% block content %}
+
+{% if messages %}
+    <ul class="lista-sucesso-erro">
+        {% for message in messages %}
+            
+                <li style="color: {% if message.tags == 'error' %}red{% else %}green{% endif %};">
+                    {{ message }}
+                </li>
+            
+        {% endfor %}
+    </ul>
+{% endif %}
+
+    <section class="secao-cadastro-cabecalho">
+        <p>Cadastro de Colaboradores</p>
+        <img src="{% static 'epi_app\images\colaboradoricone.png' %}" alt="icone colaborador">
+    </section>
+
+    <main class="container-cadastro">
+        <h1>Novo Colaborador</h1>
+
+        <form action="{% url 'cadastro_colaborador' %}" method="post">
+            {% csrf_token %}
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" placeholder="Nome do colaborador" required>
+            <label for="cargo">Cargo</label>
+            <input type="text" name="cargo" placeholder="Função/profissão" required>
+            <label for="setor">Setor</label>
+            <input type="text" name="setor" placeholder="Setor da empresa" required>
+            <button type="submit">Cadastrar</button>
+        </form>
+
+    {% comment %} {% if erro %}
+        <p style="color: red;" margin-top="0">{{ erro }}</p>
+    {% endif %}
+    
+    {% if colaborador %}
+        <p style="color: green;">Colaborador {{ colaborador.nome }} cadastrado com sucesso!</p>
+    {% endif %} {% endcomment %}
+  
+    </main>
+    
+{% endblock content %}
+
+{% block script %}
+    <script src="{% static 'epi_app/js/sumirMensagens.js' %}"></script>
+{% endblock script %}

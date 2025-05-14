@@ -1,0 +1,41 @@
+{% extends "epi_app/global/index.html" %}
+{% load static %}
+{% block title %}Editar Colaboradores{% endblock title %}
+ {% block css %}
+    <link rel="stylesheet" href="{% static 'epi_app/css/editar_colaborador.css' %}" />
+{% endblock css %}
+
+{% block content %}
+{% if messages %}
+    <ul class="lista-sucesso-erro">
+        {% for message in messages %}
+            
+                <li style="color: {% if message.tags == 'error' %}red{% else %}green {% endif %};">
+                    {{ message }}
+                </li>
+            
+        {% endfor %}
+    </ul>
+{% endif %}
+    
+<main class="container-edicao">
+    <h1>editar colaborador</h1>
+
+    <form action="{% url 'editar_colaborador' colaborador.id %}" method="post">
+        {% csrf_token %}
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" value="{{ colaborador.nome }}">
+        <label for="cargo">Cargo</label>
+        <input type="text" name="cargo" value="{{ colaborador.cargo }}">
+        <label for="setor">Setor</label>
+        <input type="text" name="setor" value="{{ colaborador.setor }}">
+        <button type="submit">Atualizar</button>
+    </form>
+
+</main>
+
+
+{% endblock content %}
+{% block script %}
+    <script src="{% static 'epi_app/js/sumirMensagens.js' %}"></script>
+{% endblock script %}

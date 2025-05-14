@@ -7,6 +7,64 @@
 
 {% block content %}
 
-<h1>Apenas um teste maroto</h1>
+<section class="secao-inicial">
+    <div class="secao-inicial-texto">
+        <h1>My EPI:</h1>
+        <p><span>Segurança</span> em 1º Lugar de Forma <span>Mais Fácil e Eficiente!</span></p>
+    </div>
+    <div class="secao-inicial-imagem">
+        <img src="{% static 'epi_app\images\logogranderecorte.jpg' %}" alt="logo my epi">
+    </div>
+</section>
+
+<section class="secao-equipamentos">
+    <h3>Equipamentos Disponíveis por Tipo:</h3>
+    <div class="grid-equipamentos">
+        <div class="item-equipamentos">
+            <span>Cabeça</span>
+            <img src="{% static 'epi_app\images\protecaocabeca.png' %}" alt="equipamento cabeça">
+        </div>
+        <div class="item-equipamentos">
+            <span>Auditiva</span>
+            <img src="{% static 'epi_app\images\protecaoauricular.png' %}" alt="equipamento ouvidos">
+        </div>
+        <div class="item-equipamentos">
+            <span>Respiratória</span>
+            <img src="{% static 'epi_app\images\protecaorespiratoria.png' %}" alt="equipamento respiratório">
+        </div>
+        <div class="item-equipamentos">
+            <span>Ocular e Facial</span>
+            <img src="{% static 'epi_app\images\protecaoocularfacial.png' %}" alt="equipamento ocular">
+        </div>
+        <div class="item-equipamentos">
+            <span>Membros Superiores</span>
+            <img src="{% static 'epi_app\images\protecaomaos.png' %}" alt="equipamento maos">
+        </div>
+        <div class="item-equipamentos">
+            <span>Membros Inferiores</span>
+            <img src="{% static 'epi_app\images\protecaopes.png' %}" alt="equipamento pes">
+        </div>
+        <div class="item-equipamentos">
+            <span>Contra Quedas</span>
+            <img src="{% static 'epi_app\images\protecaoquedas.png' %}" alt="equipamento quedas">
+        </div>
+</div>
+</section>
+<section class="secao-final">
+    <div class="secao-final-imagem">
+        <img src="{% static 'epi_app\images\backgroundcolorido.jpg' %}" alt="logo my epi">
+    </div>
+    
+    <div class="secao-final-texto">
+        <h3>TEXTTO TEXTO</h3>
+        <p>{% lorem 1 b random %}</p>
+    </div>
+   
+</section>
+
+
+</main>
+
+
 
 {% endblock content %}

@@ -1,0 +1,116 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.secao-inicial{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    width: 100vw;
+    height: 60vh;
+    /* background: linear-gradient(to left, white, #228BE6); */
+    background-color: white;
+    gap: 30px;
+}
+.secao-inicial-texto{
+    display: flex;
+    justify-content: center;    
+    flex-direction: column;
+    text-align: center;
+    font-size: 2em;
+    width: 30%;
+    margin-left: 250px;
+}
+.secao-inicial-texto span{
+    color: #5EC5F1;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.secao-inicial-imagem{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.secao-equipamentos{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto;
+    text-align: center;
+    /* background-color: rgb(215, 236, 183); */
+}
+.grid-equipamentos{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    max-width: 600px; /* controla a largura total do grid para manter centralizado */
+    justify-items: center; /* centraliza os itens dentro de cada célula */
+    text-align: center; /* centraliza o texto (os <span>) */
+    gap: 32px;
+    margin: 50px auto;
+}
+.item-equipamentos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    background-color: #5EC5F1;
+    padding: 8px;
+    width: 200px;  
+    height: 200px;
+    transition: all 0.2s ease-in;  
+}
+.item-equipamentos:hover{
+    transform: scale(1.1);
+    box-shadow:  0 0 8px 2px #36474F;;
+}
+.item-equipamentos img{
+    width: 100px;
+    height: 100px;
+    margin-top: 5px;
+}
+
+.item-equipamentos span{
+  color: #36474F;
+}
+
+.secao-final{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    width: 100vw;
+    height:60vh;
+    background-color: white;
+}
+.secao-final-texto{
+    display: flex;
+    justify-content: center;    
+    flex-direction: column;
+    text-align: center;
+    font-size: 1em;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, white, #079FD8);
+}
+.secao-final-texto p, h3{
+    width: 80%;
+}
+.secao-final-imagem{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.secao-final-imagem img{
+    width: 100%;
+    height: 100%;
+}

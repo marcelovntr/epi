@@ -1,0 +1,98 @@
+{% extends "epi_app/global/index.html" %}
+{% load static %}
+{% block title %}Lista Edição EPIs{% endblock title %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'epi_app/css/listagem_editar.css' %}" />
+{% endblock css %}
+
+{% block content %}
+
+{% if messages %}
+    <ul class="lista-sucesso-erro">
+        {% for message in messages %}
+            
+                <li style="color: {% if message.tags == 'error' %}red{% else %}green {% endif %};">
+                    {{ message }}
+                </li>
+            
+        {% endfor %}
+    </ul>
+{%endif%}
+
+<main class='container-listar-controle'>
+    <h1>Lista Controle EPIs</h1>
+       <!-- código para mensagem de: não há dados disponíveis.-->
+     {% if controladoria %}
+        <div class="container-busca">
+            <h4>Pesquisa por Registro de Controle</h4>
+            <form action="{% url 'listar_controle' %}" method="get">
+                <input type="text" name="pesquisa" placeholder="Buscar por nome/EPI/status">
+                <button type="submit">Buscar</button>
+            </form>
+            {% if pesquisa %}
+                <div class="texto-icone">
+                    <p>Busca: {{pesquisa}} </p>
+                    <a href="{% url 'listar_controle' %}"><img src="https://cdn-icons-png.freepik.com/512/5835/5835309.png" alt="fechar" width="30px"></a> 
+                </div>   
+            {% endif %}
+        </div>
+
+            <table class="tabela-lista-controle">
+                <thead class="cabecalho-lista-controle">
+                    <tr>
+                        <th>Colaborador</th>
+                        <th>EPI</th>
+                        <th>Data Empréstimo</th>
+                        <th>Data Devolução</th>
+                        <th>Status</th>
+                        <th>Ação</th> 
+                    </tr>
+                </thead>
+            <tbody class="corpo-lista-controle">
+                {% for meliante in controladoria %}
+                    <tr>
+                        <td>{{ meliante.colaborador.nome }}</td>
+                        <td>{{ meliante.equipamento.nome }}</td>
+                        {% comment %} | vem do: filtro do Django Template Language (DTL). {% endcomment %}
+                        <td>{{ meliante.data_emprestimo|date:"d/m/Y" }}</td>
+                        {% comment %} internamente, o Django faz algo parecido com:
+                        data_formatada = data_emprestimo.strftime("%d/%m/%Y") {% endcomment %}
+                        <td>{{ meliante.data_devolucao|date:"d/m/Y" }}</td>
+                        <td>{{ meliante.status }}</td>
+                        <td>
+                            <div class="botoes">
+                                {% comment %} <a href="{% url 'deletar_colaborador' worker.id %}">Excluir</a>  {% endcomment %}
+                            <form id="form-excluir-{{ meliante.id }}" action="{% url 'deletar_controle' meliante.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="button" onclick="confirmarExclusao('{{ meliante.id }}')">Excluir</button>
+                            </form>
+                                
+                            <a href="{% url 'editar_controle' meliante.id %}">Editar</a></td>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="msg-sem-dados">
+            <img src="https://cdn-icons-png.flaticon.com/512/3685/3685327.png" 
+            alt="sem dados" style="width: 300px; text-align: center;">
+            <p>Ainda não há dados disponíveis!</p>
+            <div class="linha">
+              
+                <p>Inicie um registro por aqui:</p>
+                <a href="{% url 'cadastrar_controle' %} ">Registrar Controle</a>
+            </div>   
+        </div>
+        
+    {% endif %}
+</main>
+{% endblock content %}
+{% block script %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{% static 'epi_app/js/exclusao.js' %}"></script>
+<script src="{% static 'epi_app/js/sumirMensagens.js' %}"></script>
+
+
+{% endblock script %}
