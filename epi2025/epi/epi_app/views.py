@@ -76,6 +76,7 @@ def listagem_editar(request):
     pesquisa = request.GET.get('pesquisa')
     lista_colaboradores = None #ou []
     lista_encontrados = None #ou []
+    #None é "igual" ao Null em JavaScript
     if pesquisa:
         lista_encontrados = Colaboradores.objects.filter(
             Q(nome__icontains=pesquisa) |
@@ -86,7 +87,7 @@ def listagem_editar(request):
             #ou: if len(lista_encontrados) == 0:
             #ou: lista_colaboradores.count() == 0:
             messages.error(request, 'Nenhum colaborador encontrado com esse nome.')
-            # lista_colaboradores = Colaboradores.objects.all() 
+           
     else:
         lista_colaboradores = Colaboradores.objects.all()
     return render(request, 'epi_app/pages/listagem_editar.html', 
