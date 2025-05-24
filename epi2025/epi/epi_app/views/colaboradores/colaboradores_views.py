@@ -6,8 +6,7 @@ from datetime import datetime
 from django.db.models import Q, ProtectedError
 
 # Create your views here.
-def home(request):
-    return render(request, 'epi_app/pages/home.html') 
+
 def cadastro_colaborador(request):
     if request.method == 'GET':
         return render(request, 'epi_app/pages/cadastro.html')
